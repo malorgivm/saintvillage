@@ -1,3 +1,4 @@
+import { google } from '@ai-sdk/google'
 import {
   convertToModelMessages,
   createUIMessageStreamResponse,
@@ -25,11 +26,18 @@ export async function POST(req: Request) {
     return Response.json({ erro: 'Ficha ausente.' }, { status: 400 })
   }
 
+  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    return Response.json(
+      { erro: 'Configure GOOGLE_GENERATIVE_AI_API_KEY para ativar o narrador Gemini.' },
+      { status: 503 },
+    )
+  }
+
   const recentes = messages.slice(-24)
   const inicio = recentes.findIndex((m) => m.role === 'user')
 
   const result = streamText({
-    model: 'anthropic/claude-sonnet-5.5',
+    model: google('gemini-3.5-flash'),
     instructions: instrucoesNarrador(investigador, caso, cena),
     messages: await convertToModelMessages(inicio > 0 ? recentes.slice(inicio) : recentes),
     tools: ferramentasNarrador,
