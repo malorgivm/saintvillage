@@ -16,8 +16,8 @@ export function Abertura({ onCriar }: { onCriar: () => void }) {
     <main className="min-h-dvh">
       <section className="relative isolate flex min-h-[88dvh] flex-col justify-end overflow-hidden">
         <Image
-          src="/images/saint-village-noir.png"
-          alt="Saint Village em 1934: o porto sob chuva e neblina visto pelas persianas de um escritório, com a Ponte inacabada ao fundo"
+          src="/fundos/noir5.jpg"
+          alt="Mesa de detetive em Saint Village, com persianas, fotografias, um revólver e fumaça de cigarro"
           fill
           priority
           sizes="100vw"

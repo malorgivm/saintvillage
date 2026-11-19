@@ -141,7 +141,7 @@ function Entrada({ narrador }: { narrador: Narrador }) {
   }
 
   return (
-    <div className="flex flex-col gap-3 border-t border-border bg-background px-4 py-4 md:px-10">
+    <div className="flex flex-col gap-3 border-t border-border bg-background px-4 py-4 pb-24 md:px-10 md:pb-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex border border-border" role="tablist" aria-label="Tipo de jogada">
           {MODOS.map((x) => (

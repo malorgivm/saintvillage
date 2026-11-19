@@ -35,26 +35,26 @@
 
 :root {
   color-scheme: dark;
-  --background: oklch(0.155 0.004 260);
-  --foreground: oklch(0.91 0.01 85);
-  --card: oklch(0.19 0.004 260);
-  --card-foreground: oklch(0.91 0.01 85);
-  --popover: oklch(0.19 0.004 260);
-  --popover-foreground: oklch(0.91 0.01 85);
-  --primary: oklch(0.77 0.13 75);
-  --primary-foreground: oklch(0.155 0.004 260);
-  --secondary: oklch(0.24 0.004 260);
-  --secondary-foreground: oklch(0.91 0.01 85);
-  --muted: oklch(0.24 0.004 260);
-  --muted-foreground: oklch(0.66 0.008 85);
-  --accent: oklch(0.24 0.004 260);
-  --accent-foreground: oklch(0.91 0.01 85);
-  --destructive: oklch(0.6 0.16 28);
+  --background: oklch(0.12 0.004 260);
+  --foreground: oklch(0.91 0.008 85);
+  --card: oklch(0.18 0.004 260);
+  --card-foreground: oklch(0.91 0.008 85);
+  --popover: oklch(0.18 0.004 260);
+  --popover-foreground: oklch(0.91 0.008 85);
+  --primary: #b3262c;
+  --primary-foreground: #f4f2ee;
+  --secondary: oklch(0.22 0.004 260);
+  --secondary-foreground: oklch(0.91 0.008 85);
+  --muted: oklch(0.22 0.004 260);
+  --muted-foreground: #949494;
+  --accent: oklch(0.22 0.004 260);
+  --accent-foreground: oklch(0.91 0.008 85);
+  --destructive: oklch(0.52 0.17 25);
   --destructive-foreground: oklch(0.96 0.01 85);
-  --border: oklch(0.91 0.01 85 / 12%);
-  --input: oklch(0.91 0.01 85 / 18%);
-  --ring: oklch(0.77 0.13 75);
-  --radius: 0.25rem;
+  --border: oklch(0.91 0.01 85 / 13%);
+  --input: oklch(0.91 0.01 85 / 20%);
+  --ring: #b3262c;
+  --radius: 0.2rem;
 }
 
 @layer base {
@@ -63,10 +63,42 @@
   }
   body {
     @apply bg-background text-foreground font-sans;
+    background-color: #0c0c0d;
+    background-image: linear-gradient(180deg, rgb(10 10 11 / 76%), rgb(10 10 11 / 88%)), url('/fundos/noir5.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  input:not([type='checkbox']):not([type='radio']):not([type='range']) {
+    font-family: var(--font-bebas), Impact, sans-serif;
+  }
+
+  textarea {
+    font-family: var(--font-courier), 'Courier New', monospace;
   }
 }
 
 @layer utilities {
+  .dossier {
+    color: #121213;
+    background-color: #ecebea;
+    background-image: linear-gradient(rgb(255 255 255 / 78%), rgb(255 255 255 / 78%)), url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23p)' opacity='.12'/></svg>");
+    border-color: rgb(18 18 19 / 30%);
+  }
+
+  .dossier .text-foreground { color: #121213; }
+  .dossier .text-muted-foreground { color: #565656; }
+  .dossier .bg-background { background-color: rgb(255 255 255 / 35%); }
+  .dossier .border-border { border-color: rgb(18 18 19 / 20%); }
+  .dossier .border-input { border-color: rgb(18 18 19 / 45%); }
+  .dossier input,
+  .dossier textarea,
+  .dossier select { color: #121213; }
+  .dossier input::placeholder,
+  .dossier textarea::placeholder { color: #626262; }
+
   .grain::after {
     content: '';
     position: fixed;

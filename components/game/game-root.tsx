@@ -5,6 +5,7 @@ import { useJogo } from '@/lib/game/store'
 import { Abertura } from './abertura'
 import { CriarFicha } from './criar-ficha'
 import { Mesa } from './mesa'
+import { SoundtrackPlayer } from './soundtrack-player'
 
 const nada = () => () => {}
 
@@ -15,7 +16,10 @@ export function GameRoot() {
 
   if (!hidratado) return <main className="min-h-dvh bg-background" aria-busy="true" />
 
-  if (investigador) return <Mesa />
-  if (criando) return <CriarFicha onVoltar={() => setCriando(false)} />
-  return <Abertura onCriar={() => setCriando(true)} />
+  return (
+    <>
+      {investigador ? <Mesa /> : criando ? <CriarFicha onVoltar={() => setCriando(false)} /> : <Abertura onCriar={() => setCriando(true)} />}
+      <SoundtrackPlayer />
+    </>
+  )
 }

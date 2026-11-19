@@ -1,10 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Courier_Prime, Oswald } from 'next/font/google'
+import { Bebas_Neue, Courier_Prime, Oswald } from 'next/font/google'
 import './globals.css'
 
 const courier = Courier_Prime({ subsets: ['latin'], weight: ['400', '700'], variable: '--font-courier' })
 const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
+const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-bebas' })
 
 export const metadata: Metadata = {
   title: 'Saint Village 1934 · A Cidade da Neblina',
@@ -32,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${courier.variable} ${oswald.variable} bg-background`}>
+    <html lang="pt-BR" className={`${courier.variable} ${oswald.variable} ${bebas.variable} bg-background`}>
       <body className="grain antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

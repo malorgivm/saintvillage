@@ -46,7 +46,7 @@ export function GeradorCaso({ narrador }: { narrador: Narrador }) {
     : null
 
   return (
-    <section className="flex flex-col gap-6 border border-border bg-card/60 p-6 md:p-8" aria-labelledby="gerador-titulo">
+    <section className="dossier flex flex-col gap-6 border border-border p-6 md:p-8" aria-labelledby="gerador-titulo">
       <div className="flex flex-col gap-2">
         <Rotulo>Dossiê · gerador de casos · 6 × 1d8</Rotulo>
         <h2 id="gerador-titulo" className="font-display text-3xl uppercase tracking-wide text-balance">
