@@ -116,7 +116,8 @@ const enhancementStyles = `
   .sv-v0-clock-select { box-sizing: border-box !important; width: 92px !important; max-width: 92px !important; min-width: 0 !important; height: 22px !important; min-height: 22px !important; max-height: 22px !important; padding: 1px 3px !important; border: 1px solid rgb(255 255 255 / 22%) !important; border-radius: 2px !important; background: #101012 !important; color: #ddd !important; font: 9px/1.2 Oswald, sans-serif !important; letter-spacing: .04em !important; cursor: pointer; }
   .sv-v0-clock-select option { color: #eee; background: #101012; }
   .svs-b.sv-v0-list-button { width: auto; min-width: 42px; padding: 0 8px; font-size: 9px; letter-spacing: .06em; }
-  .sv-v0-expand { display: none; }
+  .svs-st, .svs-title { white-space: nowrap !important; }
+  .sv-v0-expand { display: none !important; }
   .svs.cl .sv-v0-expand { position: absolute; top: 50%; left: 50%; z-index: 2; display: grid; grid-template-columns: repeat(4, 2px); gap: 2px; width: 28px; height: 28px; place-items: center; transform: translate(-50%, -50%); border: 0; border-radius: 50%; background: transparent; color: rgb(255 255 255 / 68%); font-size: 0; cursor: pointer; }
   .sv-v0-audio-bar { display: block; width: 2px; border-radius: 1px; background: currentColor; }
   .sv-v0-audio-bar:nth-child(1), .sv-v0-audio-bar:nth-child(4) { height: 6px; }
@@ -125,6 +126,15 @@ const enhancementStyles = `
   .svs.cl { display: grid !important; place-items: center !important; width: 48px !important; height: 48px !important; overflow: hidden !important; opacity: .62; border-color: rgb(255 255 255 / 18%) !important; background: rgb(0 0 0 / 48%) !important; }
   .svs.cl > :not(.sv-v0-expand) { display: none !important; }
   .svs.cl:hover, .svs.cl:focus-within { opacity: 1; }
+  .sv-abgo { position: relative !important; inset: auto !important; display: flex !important; justify-content: center !important; width: max-content !important; max-width: 100% !important; margin: 12px auto 0 !important; box-sizing: border-box !important; }
+  .sv-abgo button { max-width: 100% !important; white-space: normal !important; }
+  html.sv-casomin .svcaso { transform: none !important; }
+  @media (min-width: 768px) {
+    .sv-mrow { display: flex !important; flex-wrap: nowrap !important; align-items: stretch !important; gap: 12px !important; width: 100% !important; min-width: 0 !important; }
+    .sv-mrow > .sv-modes { flex: 1 1 auto !important; min-width: 0 !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .sv-dkb { display: flex !important; flex: 0 1 auto !important; flex-direction: row !important; flex-wrap: nowrap !important; gap: 6px !important; min-width: 0 !important; margin-left: 0 !important; }
+    .sv-content .sv-dkb button { flex: 0 1 auto !important; min-width: 0 !important; white-space: nowrap !important; }
+  }
   .sv-content button:hover, .sv-content button:focus-visible,
   .sv-content a:hover, .sv-content a:focus-visible,
   .sv-content input:hover, .sv-content input:focus-visible,
@@ -139,6 +149,10 @@ const enhancementStyles = `
   .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; line-height: 1.3 !important; letter-spacing: .1em !important; }
   .sv-v0-mobile-copy { width: 100% !important; max-width: none !important; font-size: clamp(12px, 3.4vw, 14px) !important; line-height: 1.4 !important; overflow-wrap: break-word !important; word-break: normal !important; }
   .sv-v0-chat-status:empty { display: none; }
+  @media (min-width: 601px) {
+    .sv-compose { height: 92px !important; min-height: 92px !important; max-height: 92px !important; }
+    .sv-compose textarea { height: 80px !important; min-height: 80px !important; }
+  }
   .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl {
     transition: color .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease, opacity .25s ease;
   }
@@ -756,22 +770,6 @@ export function installPlatformEnhancements(doc: Document) {
     trackList.append(item)
   })
 
-  const expandButton = doc.createElement("button")
-  expandButton.type = "button"
-  expandButton.className = "sv-v0-expand"
-  expandButton.setAttribute("aria-label", "Abrir controles da trilha sonora")
-  expandButton.setAttribute("aria-expanded", "false")
-  for (let index = 0; index < 4; index++) {
-    const bar = doc.createElement("span")
-    bar.className = "sv-v0-audio-bar"
-    bar.setAttribute("aria-hidden", "true")
-    expandButton.append(bar)
-  }
-  expandButton.addEventListener("click", () => {
-    doc.querySelector(".svs")?.classList.remove("cl")
-    expandButton.setAttribute("aria-expanded", "true")
-  })
-
   const listButton = doc.createElement("button")
   listButton.type = "button"
   listButton.className = "svs-b sv-v0-list-button"
@@ -782,7 +780,8 @@ export function installPlatformEnhancements(doc: Document) {
     const player = doc.querySelector<HTMLElement>(".svs")
     const controls = doc.querySelector(".svs-ctl")
     const volumeButton = doc.querySelector(".svs-vbtn")
-    if (player && !player.querySelector(".sv-v0-expand")) player.prepend(expandButton)
+    player?.classList.remove("cl")
+    player?.querySelector(".sv-v0-expand")?.remove()
     if (controls && !controls.querySelector(".sv-v0-list-button")) controls.insertBefore(listButton, volumeButton)
   }
   ensurePlayerControls()
