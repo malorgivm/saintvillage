@@ -71,6 +71,36 @@ const enhancementStyles = `
     content: none !important;
     display: none !important;
   }
+  .sv-hmenu { position: relative !important; z-index: 80; }
+  .sv-v0-learning-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 90;
+    min-width: 150px;
+    padding: 5px;
+    border: 1px solid rgb(255 255 255 / 28%);
+    background: #080809;
+    box-shadow: 0 14px 38px rgb(0 0 0 / 78%);
+  }
+  .sv-v0-learning-menu[hidden] { display: none !important; }
+  .sv-v0-learning-menu button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    border: 0;
+    background: transparent;
+    color: #eee;
+    font: 11px/1.2 Oswald, sans-serif;
+    letter-spacing: .18em;
+    text-align: left;
+    cursor: pointer;
+  }
+  .sv-v0-learning-menu button:hover, .sv-v0-learning-menu button:focus-visible {
+    background: #202022;
+    color: #fff;
+    outline: 1px solid #fff;
+  }
   .sv-content {
     box-sizing: border-box !important;
     min-height: 100dvh !important;
@@ -91,6 +121,7 @@ const enhancementStyles = `
   .sv-hdrwrap > div > .sv-tab { flex: 0 0 auto !important; }
   @media (max-width: 600px) {
     .sv-hdrwrap > div { justify-content: flex-start !important; }
+    .sv-tab[data-k="tutorial"] { display: none !important; }
   }
   .svr-foto { position: relative !important; overflow: hidden !important; }
   .svr-foto .sv-v0-portrait { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; filter: grayscale(1) contrast(1.08); }
@@ -111,10 +142,18 @@ const enhancementStyles = `
   .sv-v0-track-num { color: #999; font: 11px Oswald, sans-serif; }
   .sv-v0-track-title { display: block; font: 12px/1.4 Oswald, sans-serif; letter-spacing: .08em; }
   .sv-v0-track-artist { display: block; margin-top: 2px; color: #aaa; font: 10px/1.4 Oswald, sans-serif; }
+  .svmini-h.sv-v0-clock-source, .svrg-h.sv-v0-clock-source { display: none !important; }
+  .sv-v0-clock-select { box-sizing: border-box !important; width: 92px !important; max-width: 92px !important; min-width: 0 !important; height: 22px !important; min-height: 22px !important; max-height: 22px !important; padding: 1px 3px !important; border: 1px solid rgb(255 255 255 / 22%) !important; border-radius: 2px !important; background: #101012 !important; color: #ddd !important; font: 9px/1.2 Oswald, sans-serif !important; letter-spacing: .04em !important; cursor: pointer; }
+  .sv-v0-clock-select option { color: #eee; background: #101012; }
   .svs-b.sv-v0-list-button { width: auto; min-width: 42px; padding: 0 8px; font-size: 9px; letter-spacing: .06em; }
   .sv-v0-expand { display: none; }
-  .svs.cl .sv-v0-expand { position: absolute; inset: 0; z-index: 2; display: grid; width: 28px; height: 28px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: rgb(255 255 255 / 68%); font-size: 14px; cursor: pointer; }
-  .svs.cl { width: 48px !important; height: 48px !important; opacity: .62; border-color: rgb(255 255 255 / 18%) !important; background: rgb(0 0 0 / 48%) !important; }
+  .svs.cl .sv-v0-expand { position: absolute; top: 50%; left: 50%; z-index: 2; display: grid; grid-template-columns: repeat(4, 2px); gap: 2px; width: 28px; height: 28px; place-items: center; transform: translate(-50%, -50%); border: 0; border-radius: 50%; background: transparent; color: rgb(255 255 255 / 68%); font-size: 0; cursor: pointer; }
+  .sv-v0-audio-bar { display: block; width: 2px; border-radius: 1px; background: currentColor; }
+  .sv-v0-audio-bar:nth-child(1), .sv-v0-audio-bar:nth-child(4) { height: 6px; }
+  .sv-v0-audio-bar:nth-child(2) { height: 12px; }
+  .sv-v0-audio-bar:nth-child(3) { height: 9px; }
+  .svs.cl { display: grid !important; place-items: center !important; width: 48px !important; height: 48px !important; overflow: hidden !important; opacity: .62; border-color: rgb(255 255 255 / 18%) !important; background: rgb(0 0 0 / 48%) !important; }
+  .svs.cl > :not(.sv-v0-expand) { display: none !important; }
   .svs.cl:hover, .svs.cl:focus-within { opacity: 1; }
   .sv-content button:hover, .sv-content button:focus-visible,
   .sv-content a:hover, .sv-content a:focus-visible,
@@ -128,7 +167,7 @@ const enhancementStyles = `
   }
   .sv-v0-epigraph { font-size: clamp(16px, 4.8vw, 23px) !important; line-height: 1.28 !important; margin-block: 12px !important; max-width: 100% !important; }
   .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; line-height: 1.3 !important; letter-spacing: .1em !important; }
-  .sv-v0-mobile-copy { width: 100% !important; max-width: none !important; font-size: clamp(13px, 3.6vw, 15px) !important; line-height: 1.52 !important; overflow-wrap: break-word !important; word-break: normal !important; }
+  .sv-v0-mobile-copy { width: 100% !important; max-width: none !important; font-size: clamp(12px, 3.4vw, 14px) !important; line-height: 1.4 !important; overflow-wrap: break-word !important; word-break: normal !important; }
   .sv-v0-chat-status:empty { display: none; }
   .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl {
     transition: color .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease, opacity .25s ease;
@@ -142,7 +181,8 @@ const enhancementStyles = `
   @media (max-width: 600px) {
     .sv-content { width: 100% !important; max-width: 100vw !important; padding: 18px 12px clamp(132px, 20dvh, 200px) !important; overflow-x: hidden !important; }
     .sv-content .sv-doc { box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; padding: 14px !important; gap: 18px !important; }
-    .sv-content p, .sv-content blockquote { width: 100%; max-width: 100% !important; font-size: clamp(13px, 3.6vw, 15px) !important; line-height: 1.52 !important; overflow-wrap: break-word !important; word-break: normal !important; text-wrap: pretty; }
+    .sv-content p, .sv-content blockquote { width: 100%; max-width: 100% !important; font-size: clamp(12px, 3.4vw, 13px) !important; line-height: 1.38 !important; overflow-wrap: break-word !important; word-break: normal !important; text-wrap: pretty; }
+    .sv-v0-mobile-copy { font-size: clamp(12px, 3.4vw, 13px) !important; line-height: 1.38 !important; }
     .sv-content h1, .sv-content h2, .sv-content h3 { max-width: 100% !important; line-height: 1.12 !important; overflow-wrap: break-word !important; word-break: normal !important; }
     .sv-modes, .svmini-modes { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; width: 100% !important; min-width: 0 !important; }
     .sv-modes > button, .svmini-modes > button { box-sizing: border-box !important; min-width: 0 !important; width: 100% !important; padding: 9px 3px !important; font-size: 10px !important; letter-spacing: .07em !important; white-space: nowrap !important; text-align: center !important; }
@@ -167,15 +207,73 @@ const enhancementStyles = `
     .svr-foto .sv-v0-portrait { min-height: 0; }
     .sv-v0-epigraph { font-size: clamp(17px, 5vw, 22px) !important; line-height: 1.25 !important; }
     .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; }
-    .sv-v0-chat-help, .sv-v0-chat-status { font-size: 11px; }
-    .sv-compose { display: flex !important; align-items: stretch !important; gap: 8px !important; min-width: 0 !important; padding: 8px !important; }
-    .sv-compose textarea { box-sizing: border-box !important; flex: 1 1 auto !important; min-width: 0 !important; min-height: 54px !important; padding: 10px !important; font-size: 16px !important; line-height: 1.35 !important; }
-    .sv-compose > button { flex: 0 0 auto !important; min-width: 66px !important; padding: 8px !important; font-size: 10px !important; letter-spacing: .08em !important; }
+    .sv-content .sv-v0-chat-help { position: fixed !important; z-index: 45 !important; left: 0 !important; right: 0 !important; bottom: calc(58px + 56px + 2px) !important; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; height: 14px !important; margin: 0 !important; padding: 0 12px !important; overflow: hidden !important; background: rgb(8 8 9 / 96%) !important; color: rgb(255 255 255 / 48%) !important; font: 8px/14px var(--font-courier, monospace) !important; letter-spacing: -.04em !important; white-space: nowrap !important; text-overflow: ellipsis !important; pointer-events: none !important; }
+    .sv-v0-chat-status { font-size: 10px; }
+    .svmini { box-sizing: border-box !important; display: flex !important; flex-wrap: wrap !important; align-content: center !important; gap: 4px !important; height: auto !important; min-height: 0 !important; max-height: 82px !important; padding: 5px 10px !important; bottom: calc(58px + 56px + 18px) !important; }
+    .svmini-modes { flex: 0 0 100% !important; width: 100% !important; height: 24px !important; }
+    .svmini-modes > button { height: 24px !important; padding: 3px !important; font-size: 9px !important; }
+    .svmini-rest { box-sizing: border-box !important; flex: 0 0 100% !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; grid-template-rows: 22px 19px !important; align-items: center !important; gap: 3px 4px !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; font-size: 8px !important; line-height: 1.1 !important; }
+    .svmini-rg { grid-row: 1 !important; grid-column: 1 / -1 !important; display: grid !important; grid-template-columns: minmax(0, 1fr) auto auto auto !important; align-items: center !important; gap: 5px !important; width: 100% !important; height: 22px !important; min-width: 0 !important; }
+    .svmini-rg b { min-width: 0 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+    .svmini-rg > span { font-size: 8px !important; white-space: nowrap !important; }
+    .svmini-h { padding: 1px 3px !important; font-size: 8px !important; white-space: nowrap !important; }
+    .svmini-fx { grid-row: 2 !important; grid-column: 1 / span 2 !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 2px !important; height: 19px !important; min-width: 0 !important; }
+    .svmini-st { grid-row: 2 !important; grid-column: 3 / span 2 !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 2px !important; height: 19px !important; min-width: 0 !important; }
+    .svmini-fx > button, .svmini-st > button { display: flex !important; justify-content: center !important; align-items: center !important; box-sizing: border-box !important; width: 100% !important; min-width: 0 !important; padding: 2px 1px !important; font-size: 8px !important; line-height: 1.1 !important; letter-spacing: -.04em !important; white-space: nowrap !important; }
+    .svmini-st > button { font-size: 7.5px !important; letter-spacing: -.06em !important; }
+    .sv-compose { display: flex !important; align-items: stretch !important; gap: 6px !important; width: 100% !important; min-width: 0 !important; height: 56px !important; min-height: 56px !important; max-height: 56px !important; padding: 5px !important; }
+    .sv-compose textarea { box-sizing: border-box !important; flex: 1 1 auto !important; min-width: 0 !important; height: 44px !important; min-height: 44px !important; padding: 7px 9px !important; font-size: 16px !important; line-height: 1.2 !important; }
+    .sv-compose > button { flex: 0 0 auto !important; min-width: 60px !important; min-height: 44px !important; padding: 5px !important; font-size: 9px !important; letter-spacing: .06em !important; }
   }
   @media (prefers-reduced-motion: reduce) {
     .sv-v0-scene, .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl { transition: none !important; animation: none !important; }
   }
-`
+  `
+
+function installLearningMenu(doc: Document) {
+  const menuRoot = doc.querySelector<HTMLElement>(".sv-hmenu")
+  const trigger = menuRoot?.querySelector<HTMLButtonElement>(".sv-burger")
+  const learningTab = doc.querySelector<HTMLButtonElement>('.sv-tab[data-k="tutorial"]')
+  if (!menuRoot || !trigger || !learningTab || menuRoot.querySelector(".sv-v0-learning-menu")) return
+
+  const menu = doc.createElement("div")
+  menu.id = "sv-v0-learning-menu"
+  menu.className = "sv-v0-learning-menu"
+  menu.hidden = true
+  menu.setAttribute("aria-label", "Navegação adicional")
+
+  const item = doc.createElement("button")
+  item.type = "button"
+  item.textContent = "APRENDER"
+  const closeMenu = () => {
+    menu.hidden = true
+    trigger.setAttribute("aria-expanded", "false")
+  }
+
+  item.addEventListener("click", () => {
+    learningTab.click()
+    closeMenu()
+    trigger.focus()
+  })
+  menu.append(item)
+  menuRoot.append(menu)
+  trigger.setAttribute("aria-controls", menu.id)
+  trigger.addEventListener("click", () => {
+    const isOpening = menu.hidden
+    menu.hidden = !isOpening
+    trigger.setAttribute("aria-expanded", String(isOpening))
+    if (isOpening) item.focus()
+  })
+  doc.addEventListener("click", (event) => {
+    if (!menuRoot.contains(event.target as Node)) closeMenu()
+  })
+  doc.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !menu.hidden) {
+      closeMenu()
+      trigger.focus()
+    }
+  })
+}
 
 function getActiveSlug(doc: Document) {
   try {
@@ -300,11 +398,14 @@ function installNarratorMemoryBridge(doc: Document) {
     const context = `${request.system ?? ""}\n${userText}`
     const isDirectorQuestion = /PERGUNTA FORA DE CENA AO DIRETOR|PERGUNTA DO JOGADOR AO DIRETOR/i.test(context)
     const isSceneAction = !isDirectorQuestion && /\bAGORA:/i.test(userText)
+    const selectedPeriod = scenePeriodByDocument.get(doc)
+    const selectedSceneTime = selectedPeriod ? `${selectedPeriod.label} (${selectedPeriod.hour})` : undefined
     const prompt = isSceneAction
-      ? `${request.system ?? ""}\n\nREGISTRO AUTOMÁTICO DA FICHA: depois da narração, inclua um bloco final <SVFICHA>{\"notas\":[],\"contatos\":[],\"lacos\":[]}</SVFICHA>. Preencha as listas somente com fatos novos, confirmados nesta interação: notas para pistas e acontecimentos importantes; contatos para pessoas nomeadas e a relação estabelecida; lacos para mudanças reais em vínculos existentes. Não invente relações, não repita dados já conhecidos e deixe listas vazias quando não houver atualização. O bloco é metadado e não deve aparecer na narração.}`
+      ? `${request.system ?? ""}\n\nREGISTRO AUTOMÁTICO DA FICHA: depois da narração, inclua um bloco final <SVFICHA>{"notas":[],"contatos":[],"lacos":[]}</SVFICHA>. Preencha as listas somente com fatos novos, confirmados nesta interação: notas para pistas e acontecimentos importantes; contatos para pessoas nomeadas e a relação estabelecida; lacos para mudanças reais em vínculos existentes. Não invente relações, não repita dados já conhecidos e deixe listas vazias quando não houver atualização. O bloco é metadado e não deve aparecer na narração.${selectedSceneTime ? `\n\nHORÁRIO DA CENA DEFINIDO PELO JOGADOR: ${selectedSceneTime}. Mantenha a iluminação, o ambiente e a continuidade da narração coerentes com esse período.` : ""}`
       : request.system
 
     const response = await original({ ...request, system: prompt })
+
     if (!isSceneAction || typeof response !== "string") return response
 
     const marker = /<SVFICHA>([\s\S]*?)<\/SVFICHA>/gi
@@ -332,6 +433,62 @@ function hideCharacterSecret(doc: Document) {
   secret?.parentElement?.classList.add("sv-v0-secret-field")
 }
 
+const scenePeriods = [
+  { key: "amanhecer", label: "Amanhecer", hour: "06h" },
+  { key: "entardecer", label: "Entardecer", hour: "18h" },
+  { key: "anoitecer", label: "Anoitecer", hour: "22h" },
+] as const
+
+const scenePeriodByDocument = new WeakMap<Document, (typeof scenePeriods)[number]>()
+
+function periodForHour(hour: string) {
+  return scenePeriods.find((period) => period.hour === hour) ?? scenePeriods[2]
+}
+
+function installSceneClock(doc: Document) {
+  const updateClock = () => {
+    const clocks = [...doc.querySelectorAll<HTMLButtonElement>(".svmini-h, .svrg-h")]
+    for (const clock of clocks) {
+      const currentHour = clock.querySelector<HTMLElement>(".sc-interp")?.textContent?.trim() ?? "22h"
+      clock.classList.add("sv-v0-clock-source")
+      clock.setAttribute("aria-hidden", "true")
+      clock.tabIndex = -1
+
+      let control = clock.nextElementSibling
+      if (!control?.classList.contains("sv-v0-clock-select")) {
+        const select = doc.createElement("select")
+        select.className = "sv-v0-clock-select"
+        select.setAttribute("aria-label", "Horário da cena")
+        select.title = "Escolha Amanhecer, Entardecer ou Anoitecer"
+        for (const period of scenePeriods) {
+          const option = doc.createElement("option")
+          option.value = period.key
+          option.textContent = `${period.label} · ${period.hour}`
+          select.append(option)
+        }
+        select.addEventListener("change", () => {
+          const selected = scenePeriods.find((period) => period.key === select.value)
+          if (!selected) return
+          scenePeriodByDocument.set(doc, selected)
+          updateClock()
+        })
+        clock.insertAdjacentElement("afterend", select)
+        control = select
+      }
+
+      const select = control as HTMLSelectElement
+      const selected = scenePeriodByDocument.get(doc) ?? periodForHour(currentHour)
+      if (select.value !== selected.key) select.value = selected.key
+      const label = `Horário da cena: ${selected.label}, ${selected.hour}`
+      if (select.getAttribute("aria-label") !== label) select.setAttribute("aria-label", label)
+      if (select.title !== label) select.title = label
+    }
+  }
+
+  updateClock()
+  return updateClock
+}
+
 function ensureComposerInstructions(doc: Document) {
   const composer = doc.querySelector<HTMLElement>(".sv-compose")
   const textarea = composer?.querySelector<HTMLTextAreaElement>("textarea")
@@ -342,7 +499,7 @@ function ensureComposerInstructions(doc: Document) {
     help = doc.createElement("p")
     help.id = "sv-v0-chat-help"
     help.className = "sv-v0-chat-help"
-    help.textContent = "Para falar com alguém em cena: /Nome do personagem: sua fala."
+    help.textContent = "Para falar com alguém em cena: /Nome do personagem: sua fala"
   }
   if (help.previousElementSibling !== composer) composer.insertAdjacentElement("afterend", help)
 
@@ -496,6 +653,7 @@ export function installPlatformEnhancements(doc: Document) {
   style.id = "sv-v0-enhancements"
   style.textContent = enhancementStyles
   doc.head.append(style)
+  installLearningMenu(doc)
 
   const appRoot = doc.querySelector<HTMLElement>(".sc-host > div")
   const sceneByTab: Record<string, string> = {
@@ -532,6 +690,7 @@ export function installPlatformEnhancements(doc: Document) {
   }
   updateScene()
   installComposerEnhancements(doc)
+  const updateSceneClock = installSceneClock(doc)
   installNarratorMemoryBridge(doc)
   hideCharacterSecret(doc)
   syncAutoMemory(doc)
@@ -678,7 +837,12 @@ export function installPlatformEnhancements(doc: Document) {
   expandButton.className = "sv-v0-expand"
   expandButton.setAttribute("aria-label", "Abrir controles da trilha sonora")
   expandButton.setAttribute("aria-expanded", "false")
-  expandButton.textContent = "♫"
+  for (let index = 0; index < 4; index++) {
+    const bar = doc.createElement("span")
+    bar.className = "sv-v0-audio-bar"
+    bar.setAttribute("aria-hidden", "true")
+    expandButton.append(bar)
+  }
   expandButton.addEventListener("click", () => {
     doc.querySelector(".svs")?.classList.remove("cl")
     expandButton.setAttribute("aria-expanded", "true")
@@ -763,6 +927,7 @@ export function installPlatformEnhancements(doc: Document) {
     restorePortrait()
     ensurePlayerControls()
     ensureComposerInstructions(doc)
+    updateSceneClock()
     installNarratorMemoryBridge(doc)
     hideCharacterSecret(doc)
     syncAutoMemory(doc)
