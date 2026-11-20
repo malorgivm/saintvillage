@@ -23,27 +23,30 @@ const backgrounds = {
   noir4: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/noir4-EvhmUa3v7rz8YZMafumhr3nLLYEmo8.jpg",
 }
 
-const tracks: Track[] = [
-  { title: "Police Interrogation", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-police-interrogation-asmr-noir-jazz-520244-PkdhE79hnUieiPBiub6B76YI2F6VLW.mp3" },
-  { title: "Surf Rock", artist: "Alex Morgan", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alex-morgan-surf-rock-591326-cLOutieQk9dpAUySG1BVTEAcq6r9hA.mp3" },
-  { title: "Noir Jazz Detective Midnight Mystery", artist: "Alex Morgan", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alex-morgan-noir-jazz-detective-midnight-mystery-587403-bLGjPRuIxgFsncKuySX7Vu9gUgG0bP.mp3" },
+const noirTracks: Track[] = [
   { title: "Film Noir", artist: "NoirTales", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/noirtales-film-noir-566510-RaHcuDj9Bj5zqEiHfgIsHj3a479NFV.mp3" },
+  { title: "Police Interrogation", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-police-interrogation-asmr-noir-jazz-520244-PkdhE79hnUieiPBiub6B76YI2F6VLW.mp3" },
+  { title: "Noir Jazz Detective Midnight Mystery", artist: "Alex Morgan", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alex-morgan-noir-jazz-detective-midnight-mystery-587403-bLGjPRuIxgFsncKuySX7Vu9gUgG0bP.mp3" },
   { title: "Crime Scene Investigation", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-crime-scene-investigation-asmr-noir-jazz-520242-qXaIO6mrOuACxqJSF31IEitvzZTBig.mp3" },
   { title: "Noir", artist: "Madstock", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/madstock-noir-340140-CdKLSQd5rvE6kaNNlEPxS3nA1nc5TG.mp3" },
-  { title: "Energetic Garage Rock", artist: "Abydos Music", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abydos_music-energetic-garage-rock-171763-9sKX2Cyja1VtYcbyVgoY0w5CLiHgMj.mp3" },
-  { title: "Cobra", artist: "Octosound", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/octosound-cobra-169065-BMPf3eosEAxxJMp4uqPCIC55JTqPI3.mp3" },
-  { title: "Funk Instrumental", artist: "Sub Clair", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sub_clair-funk-instrumental-610619-tb7vj7QfqGZ4l95ZF8O4lluy5MAwJ7.mp3" },
   { title: "Gritty Noir", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-gritty-noir-asmr-noir-jazz-520243-L5K4TnSzyvgfvn20g9dkGxKRD1j6Qh.mp3" },
-  { title: "Spy Surf", artist: "Remstunes", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/remstunes-spy-surf-392415-fxBdx6LADWsbdrGPxPM4K16mDtdlEN.mp3" },
-  { title: "Spaghetti Western", artist: "Positive Sound", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/positive_sound-spaghetti-western-491538-9tlaZK1SUJZ0XWvtHPgCFhlafqj7TT.mp3" },
   { title: "Forensic Evidence", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-forensic-evidence-asmr-noir-jazz-520236-wRUHLcYTdtmWS3xbJSehCuq73pepPm.mp3" },
-  { title: "Western Theme", artist: "Luis Humanoide", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/luis_humanoide-western-theme-162884-KlaIU2zfTxqALmQzMJTgZxFIrWAkru.mp3" },
   { title: "Unsolved Mystery", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-unsolved-mystery-asmr-noir-jazz-520239-cSDD9LlTxRJ4ZTeWGqTNUfMaFJuoBA.mp3" },
   { title: "Noir Piano Club", artist: "Mark Music Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/markmusicstudio-noir-piano-club-572124-XfktxhIlUMFlzgZSzfVgAK2oQwA1D9.mp3" },
   { title: "My Crime Story", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-my-crime-story-asmr-noir-jazz-520241-9Sl04cw90QAYpi59MVwl1AYtTuScFg.mp3" },
+  { title: "Suspect Profiling", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-suspect-profiling-asmr-noir-jazz-520237-dHYBRbSDJSLfhNAU7vX0d47tdn1MWd.mp3" },
+]
+
+const pulpTracks: Track[] = [
+  { title: "Surf Rock", artist: "Alex Morgan", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alex-morgan-surf-rock-591326-cLOutieQk9dpAUySG1BVTEAcq6r9hA.mp3" },
+  { title: "Energetic Garage Rock", artist: "Abydos Music", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abydos_music-energetic-garage-rock-171763-9sKX2Cyja1VtYcbyVgoY0w5CLiHgMj.mp3" },
+  { title: "Cobra", artist: "Octosound", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/octosound-cobra-169065-BMPf3eosEAxxJMp4uqPCIC55JTqPI3.mp3" },
+  { title: "Funk Instrumental", artist: "Sub Clair", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sub_clair-funk-instrumental-610619-tb7vj7QfqGZ4l95ZF8O4lluy5MAwJ7.mp3" },
+  { title: "Spy Surf", artist: "Remstunes", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/remstunes-spy-surf-392415-fxBdx6LADWsbdrGPxPM4K16mDtdlEN.mp3" },
+  { title: "Spaghetti Western", artist: "Positive Sound", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/positive_sound-spaghetti-western-491538-9tlaZK1SUJZ0XWvtHPgCFhlafqj7TT.mp3" },
+  { title: "Western Theme", artist: "Luis Humanoide", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/luis_humanoide-western-theme-162884-KlaIU2zfTxqALmQzMJTgZxFIrWAkru.mp3" },
   { title: "La Siesta del Pistolero", artist: "Emand Edroff", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/emand_edroff-la-siesta-del-pistolero-616040-wFzpKEGknTrPDROrRBxd6GpOoXRyOb.mp3" },
   { title: "Midnight Mirage", artist: "Vlad Annenkov", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vlad_annenkov-tarantino-blues-quotmidnight-mirage-471931-cedpBVLNtQYXEpWjb93sJYj2SiOQ9Z.mp3" },
-  { title: "Suspect Profiling", artist: "Konstantin Pazuzu Studio", src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/konstantinpazuzustudio-suspect-profiling-asmr-noir-jazz-520237-dHYBRbSDJSLfhNAU7vX0d47tdn1MWd.mp3" },
 ]
 
 const enhancementStyles = `
@@ -83,49 +86,42 @@ const enhancementStyles = `
   .sv-v0-chat-help { margin: 8px 0 0; color: rgb(255 255 255 / 62%); font: 12px/1.5 var(--font-courier, monospace); }
   .sv-v0-chat-status { min-height: 1.5em; margin: 4px 0 0; color: #eee; font: 12px/1.5 var(--font-courier, monospace); }
   .sv-hdrwrap > div {
-    flex-wrap: nowrap !important;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)) !important;
+    width: 100% !important;
     overscroll-behavior-inline: contain;
     scrollbar-width: none;
   }
   .sv-hdrwrap > div::-webkit-scrollbar { display: none; }
-  .sv-hdrwrap > div > .sv-tab { flex: 0 0 auto !important; }
+  .sv-hdrwrap > div > .sv-tab { box-sizing: border-box !important; width: 100% !important; min-width: 0 !important; justify-content: center !important; }
   @media (max-width: 600px) {
-    .sv-hdrwrap > div { justify-content: flex-start !important; }
+    .sv-hdrwrap > div { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; }
     .sv-tab[data-k="tutorial"] { display: none !important; }
   }
   .svr-foto { position: relative !important; overflow: hidden !important; }
   .svr-foto .sv-v0-portrait { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; filter: grayscale(1) contrast(1.08); }
   .sv-v0-portrait-picker { width: min(94vw, 760px); max-height: min(88vh, 780px); padding: 22px; border: 1px solid #777; color: #f3f3f3; background: #101012; box-shadow: 0 20px 80px #000; }
-  .sv-v0-portrait-picker::backdrop, .sv-v0-playlist::backdrop { background: rgb(0 0 0 / 78%); backdrop-filter: blur(5px); }
-  .sv-v0-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
-  .sv-v0-dialog-head h2 { margin: 0; font: 500 13px/1.4 Oswald, sans-serif; letter-spacing: .2em; text-transform: uppercase; }
-  .sv-v0-close { border: 1px solid #555; background: transparent; color: #fff; padding: 8px 12px; font: 11px Oswald, sans-serif; letter-spacing: .12em; cursor: pointer; }
+  .sv-v0-portrait-picker::backdrop { background: rgb(0 0 0 / 78%); backdrop-filter: blur(5px); }
   .sv-v0-portrait-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; max-height: calc(88vh - 110px); overflow: auto; scrollbar-color: #666 #161618; }
   .sv-v0-portrait-choice { display: flex; flex-direction: column; gap: 8px; padding: 6px; border: 1px solid #444; background: #18181a; color: #eee; text-align: left; cursor: pointer; }
   .sv-v0-portrait-choice:hover, .sv-v0-portrait-choice:focus-visible { border-color: #ddd; outline: 1px solid #ddd; }
   .sv-v0-portrait-choice img { display: block; width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(1); }
   .sv-v0-portrait-choice span { font: 10px/1.4 Oswald, sans-serif; letter-spacing: .08em; }
-  .sv-v0-playlist { width: min(92vw, 520px); max-height: min(86vh, 720px); padding: 20px; border: 1px solid #777; color: #f3f3f3; background: #101012; }
-  .sv-v0-track-list { display: flex; flex-direction: column; gap: 4px; max-height: 62vh; overflow: auto; }
-  .sv-v0-track { display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 10px; align-items: center; width: 100%; padding: 9px 10px; border: 1px solid transparent; background: transparent; color: #eee; text-align: left; cursor: pointer; }
-  .sv-v0-track:hover, .sv-v0-track:focus-visible, .sv-v0-track[aria-current="true"] { border-color: #777; background: #242426; outline: none; }
-  .sv-v0-track-num { color: #999; font: 11px Oswald, sans-serif; }
-  .sv-v0-track-title { display: block; font: 12px/1.4 Oswald, sans-serif; letter-spacing: .08em; }
-  .sv-v0-track-artist { display: block; margin-top: 2px; color: #aaa; font: 10px/1.4 Oswald, sans-serif; }
   .svmini-h.sv-v0-clock-source, .svrg-h.sv-v0-clock-source { display: none !important; }
   .sv-v0-clock-select { box-sizing: border-box !important; width: 92px !important; max-width: 92px !important; min-width: 0 !important; height: 22px !important; min-height: 22px !important; max-height: 22px !important; padding: 1px 3px !important; border: 1px solid rgb(255 255 255 / 22%) !important; border-radius: 2px !important; background: #101012 !important; color: #ddd !important; font: 9px/1.2 Oswald, sans-serif !important; letter-spacing: .04em !important; cursor: pointer; }
   .sv-v0-clock-select option { color: #eee; background: #101012; }
-  .svs-b.sv-v0-list-button { width: auto; min-width: 42px; padding: 0 8px; font-size: 9px; letter-spacing: .06em; }
   .svs-st, .svs-title { white-space: nowrap !important; }
   .sv-v0-expand { display: none !important; }
-  .svs.cl .sv-v0-expand { position: absolute; top: 50%; left: 50%; z-index: 2; display: grid; grid-template-columns: repeat(4, 2px); gap: 2px; width: 28px; height: 28px; place-items: center; transform: translate(-50%, -50%); border: 0; border-radius: 50%; background: transparent; color: rgb(255 255 255 / 68%); font-size: 0; cursor: pointer; }
-  .sv-v0-audio-bar { display: block; width: 2px; border-radius: 1px; background: currentColor; }
-  .sv-v0-audio-bar:nth-child(1), .sv-v0-audio-bar:nth-child(4) { height: 6px; }
-  .sv-v0-audio-bar:nth-child(2) { height: 12px; }
-  .sv-v0-audio-bar:nth-child(3) { height: 9px; }
+  .svs .svs-disc { align-items: center; justify-content: center; gap: 2px; }
+  .svs .svs-disc i { display: block; width: 2px; height: 4px; border-radius: 2px; background: currentColor; transform: scaleY(.65); transform-origin: center; }
+  .svs.sv-v0-playing .svs-disc i { animation: sv-v0-player-bars .52s ease-in-out infinite alternate; }
+  .svs.sv-v0-playing .svs-disc i:nth-child(2) { animation-delay: .16s; }
+  .svs.sv-v0-playing .svs-disc i:nth-child(3) { animation-delay: .31s; }
+  @keyframes sv-v0-player-bars { from { transform: scaleY(.45); } to { transform: scaleY(1.7); } }
   .svs.cl { display: grid !important; place-items: center !important; width: 48px !important; height: 48px !important; overflow: hidden !important; opacity: .62; border-color: rgb(255 255 255 / 18%) !important; background: rgb(0 0 0 / 48%) !important; }
-  .svs.cl > :not(.sv-v0-expand) { display: none !important; }
+  .svs.cl > .svs-row { display: flex !important; }
   .svs.cl:hover, .svs.cl:focus-within { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .svs .svs-disc i { animation: none !important; } }
   .sv-abgo { position: relative !important; inset: auto !important; display: flex !important; justify-content: center !important; width: max-content !important; max-width: 100% !important; margin: 12px auto 0 !important; box-sizing: border-box !important; }
   .sv-abgo button { max-width: 100% !important; white-space: normal !important; }
   html.sv-casomin .svcaso { transform: none !important; }
@@ -145,6 +141,13 @@ const enhancementStyles = `
     outline-color: #fff !important;
     box-shadow: 0 0 0 1px rgb(255 255 255 / 72%) !important;
   }
+  .sv-login-i:focus { border-bottom-color: #fff !important; }
+  [style-hover*="#b08e43"]:hover { border-color: #fff !important; color: #fff !important; box-shadow: 0 0 14px rgb(255 255 255 / 20%) !important; }
+  [style*="rgba(176,142,67"] { background-image: radial-gradient(ellipse at 50% 50%, rgb(255 255 255 / 18%), transparent 68%) !important; }
+  html.sv-casomin .svt-invite { display: none !important; }
+  .sv-content .svf-hd [style*="font-family:var(--sv-display"] { font-family: Anton, sans-serif !important; font-weight: 400 !important; }
+  .svd-face { background: linear-gradient(160deg, #f3f3f3 0%, #e1e1e1 45%, #c7c7c7 100%) !important; box-shadow: inset 0 0 0 .5px rgb(64 64 64 / 35%), inset 0 0 3px 1px rgb(96 96 96 / 22%), inset 0 0 10px rgb(120 120 120 / 18%) !important; }
+  .svd-face::before { background: radial-gradient(120% 90% at 30% 18%, rgb(255 255 255 / 35%), transparent 55%), radial-gradient(100% 100% at 80% 95%, rgb(40 40 40 / 16%), transparent 60%) !important; }
   .sv-v0-epigraph { font-size: clamp(16px, 4.8vw, 23px) !important; line-height: 1.28 !important; margin-block: 12px !important; max-width: 100% !important; }
   .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; line-height: 1.3 !important; letter-spacing: .1em !important; }
   .sv-v0-mobile-copy { width: 100% !important; max-width: none !important; font-size: clamp(12px, 3.4vw, 14px) !important; line-height: 1.4 !important; overflow-wrap: break-word !important; word-break: normal !important; }
@@ -339,19 +342,20 @@ function installNarratorMemoryBridge(doc: Document) {
     const isSceneAction = !isDirectorQuestion && /\bAGORA:/i.test(userText)
     const selectedPeriod = scenePeriodByDocument.get(doc)
     const selectedSceneTime = selectedPeriod ? `${selectedPeriod.label} (${selectedPeriod.hour})` : undefined
+    const rememberedFacts = readAutoMemory(doc).slice(-24).map(formatAutoMemory)
     const prompt = isSceneAction
-      ? `${request.system ?? ""}\n\nREGISTRO AUTOMÁTICO DA FICHA: depois da narração, inclua um bloco final <SVFICHA>{"notas":[],"contatos":[],"lacos":[]}</SVFICHA>. Preencha as listas somente com fatos novos, confirmados nesta interação: notas para pistas e acontecimentos importantes; contatos para pessoas nomeadas e a relação estabelecida; lacos para mudanças reais em vínculos existentes. Não invente relações, não repita dados já conhecidos e deixe listas vazias quando não houver atualização. O bloco é metadado e não deve aparecer na narração.${selectedSceneTime ? `\n\nHORÁRIO DA CENA DEFINIDO PELO JOGADOR: ${selectedSceneTime}. Mantenha a iluminação, o ambiente e a continuidade da narração coerentes com esse período.` : ""}`
+      ? `${request.system ?? ""}\n\nCONTINUIDADE CONFIRMADA DO CASO: use estes fatos como memória histórica. O estado atual da ficha, das pistas, da cena e do caso acima tem prioridade se houver conflito. Não invente detalhes nem repita a lista ao jogador.\n${rememberedFacts.length ? rememberedFacts.join("\n") : "Nenhum fato adicional registrado."}\n\nREGISTRO AUTOMÁTICO DA FICHA: depois da narração, inclua um bloco final <SVFICHA>{"notas":[],"contatos":[],"lacos":[]}</SVFICHA>. Preencha as listas somente com fatos novos, confirmados nesta interação: notas para pistas e acontecimentos importantes; contatos para pessoas nomeadas e a relação estabelecida; lacos para mudanças reais em vínculos existentes. Não invente relações, não repita dados já conhecidos e deixe listas vazias quando não houver atualização. O bloco é metadado e não deve aparecer na narração.${selectedSceneTime ? `\n\nHORÁRIO DA CENA DEFINIDO PELO JOGADOR: ${selectedSceneTime}. Mantenha a iluminação, o ambiente e a continuidade da narração coerentes com esse período.` : ""}`
       : request.system
 
     const response = await original({ ...request, system: prompt })
+    if (typeof response !== "string") return response
 
-    if (!isSceneAction || typeof response !== "string") return response
-
-    const marker = /<SVFICHA>([\s\S]*?)<\/SVFICHA>/gi
-    let cleanResponse = response
+    const marker = /<SVFICHA>\s*([\s\S]*?)(?:<\/SVFICHA>|$)/gi
     for (const match of response.matchAll(marker)) {
+      if (!isSceneAction) continue
       try {
-        const data = JSON.parse(match[1]) as { notas?: unknown; contatos?: unknown; lacos?: unknown }
+        const rawData = match[1].replace(/^```(?:json)?\s*/i, "").replace(/\s*```\s*$/, "").trim()
+        const data = JSON.parse(rawData) as { notas?: unknown; contatos?: unknown; lacos?: unknown }
         saveAutoMemory(doc, [
           ...toAutoMemoryItems("nota", data.notas),
           ...toAutoMemoryItems("contato", data.contatos),
@@ -361,8 +365,11 @@ function installNarratorMemoryBridge(doc: Document) {
         continue
       }
     }
-    cleanResponse = cleanResponse.replace(marker, "").replace(/\n{3,}/g, "\n\n").trim()
-    return cleanResponse
+    return response
+      .replace(marker, "")
+      .replace(/<\/SVFICHA>/gi, "")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim()
   }
   win.__svV0MemoryInstalled = true
 }
@@ -699,104 +706,75 @@ export function installPlatformEnhancements(doc: Document) {
     if (src) applyPortrait(src, "Retrato selecionado para a ficha")
   }
 
-  const playlistDialog = doc.createElement("dialog")
-  playlistDialog.className = "sv-v0-playlist"
-  playlistDialog.setAttribute("aria-label", "Lista de trilhas sonoras")
-  const playlistHeader = doc.createElement("div")
-  playlistHeader.className = "sv-v0-dialog-head"
-  const playlistTitle = doc.createElement("h2")
-  playlistTitle.textContent = "Trilha sonora · Saint Village"
-  const closePlaylist = doc.createElement("button")
-  closePlaylist.className = "sv-v0-close"
-  closePlaylist.type = "button"
-  closePlaylist.textContent = "FECHAR"
-  closePlaylist.addEventListener("click", () => playlistDialog.close())
-  playlistHeader.append(playlistTitle, closePlaylist)
-  const trackList = doc.createElement("div")
-  trackList.className = "sv-v0-track-list"
-  playlistDialog.append(playlistHeader, trackList)
-  doc.body.append(playlistDialog)
-
+  const getCurrentEra = () => {
+    const frameWindow = doc.defaultView as (Window & { __svApp?: { state?: { era?: string | null } } }) | null
+    return frameWindow?.__svApp?.state?.era ?? null
+  }
+  const getTracksForEra = () => getCurrentEra() === "1994" ? pulpTracks : noirTracks
   const audio = doc.createElement("audio")
   audio.preload = "none"
   audio.volume = 0.7
   doc.body.append(audio)
+  let activeTracks = getTracksForEra()
   let trackIndex = 0
   const updateTrackLabels = () => {
-    const track = tracks[trackIndex]
+    const track = activeTracks[trackIndex]
     const title = doc.querySelector<HTMLElement>(".svs-title")
     const artist = doc.querySelector<HTMLElement>(".svs-art")
-    if (title) title.textContent = `${track.title}  ·  ${track.artist}`
-    if (artist) artist.textContent = track.artist
-    trackList.querySelectorAll<HTMLButtonElement>(".sv-v0-track").forEach((button, index) => {
-      if (index === trackIndex) button.setAttribute("aria-current", "true")
-      else button.removeAttribute("aria-current")
-    })
+    const trackLabel = `${track.title}  ·  ${track.artist}`
+    if (title && title.textContent !== trackLabel) title.textContent = trackLabel
+    if (artist && artist.textContent !== track.artist) artist.textContent = track.artist
   }
   const setTrack = (index: number, shouldPlay: boolean) => {
-    trackIndex = (index + tracks.length) % tracks.length
+    const nextTracks = getTracksForEra()
+    const playlistChanged = nextTracks !== activeTracks
+    if (playlistChanged) {
+      activeTracks = nextTracks
+      trackIndex = 0
+    }
+    const requestedIndex = playlistChanged ? 0 : index
+    trackIndex = ((requestedIndex % activeTracks.length) + activeTracks.length) % activeTracks.length
     audio.pause()
-    audio.src = tracks[trackIndex].src
+    audio.src = activeTracks[trackIndex].src
     audio.load()
     updateTrackLabels()
     if (shouldPlay) {
-      void audio.play().then(() => setStatus(true)).catch(() => {
+      void audio.play().then(() => setStatus(!audio.paused)).catch(() => {
         const status = doc.querySelector<HTMLElement>(".svs-st")
         if (status) status.textContent = "Não foi possível tocar"
       })
     }
   }
-  tracks.forEach((track, index) => {
-    const item = doc.createElement("button")
-    item.type = "button"
-    item.className = "sv-v0-track"
-    item.setAttribute("aria-label", `Tocar ${track.title}, ${track.artist}`)
-    const number = doc.createElement("span")
-    number.className = "sv-v0-track-num"
-    number.textContent = String(index + 1).padStart(2, "0")
-    const description = doc.createElement("span")
-    const title = doc.createElement("span")
-    title.className = "sv-v0-track-title"
-    title.textContent = track.title
-    const artist = doc.createElement("span")
-    artist.className = "sv-v0-track-artist"
-    artist.textContent = track.artist
-    description.append(title, artist)
-    item.append(number, description)
-    item.addEventListener("click", () => {
-      setTrack(index, true)
-      playlistDialog.close()
-    })
-    trackList.append(item)
-  })
-
-  const listButton = doc.createElement("button")
-  listButton.type = "button"
-  listButton.className = "svs-b sv-v0-list-button"
-  listButton.setAttribute("aria-label", "Abrir lista de faixas")
-  listButton.textContent = "LISTA"
-  listButton.addEventListener("click", () => playlistDialog.showModal())
+  const syncEraPlaylist = () => {
+    if (getTracksForEra() !== activeTracks) setTrack(0, false)
+  }
   const ensurePlayerControls = () => {
     const player = doc.querySelector<HTMLElement>(".svs")
-    const controls = doc.querySelector(".svs-ctl")
-    const volumeButton = doc.querySelector(".svs-vbtn")
-    player?.classList.remove("cl")
     player?.querySelector(".sv-v0-expand")?.remove()
-    if (controls && !controls.querySelector(".sv-v0-list-button")) controls.insertBefore(listButton, volumeButton)
+    player?.querySelector(".sv-v0-list-button")?.remove()
+    updateTrackLabels()
   }
   ensurePlayerControls()
 
   const setStatus = (playing: boolean) => {
+    const player = doc.querySelector<HTMLElement>(".svs")
     const status = doc.querySelector<HTMLElement>(".svs-st")
     const playButton = doc.querySelector<HTMLButtonElement>(".svs-play")
     const label = playing ? "Tocando agora" : "Em pausa"
+    player?.classList.toggle("sv-v0-playing", playing)
     if (status && status.textContent !== label) status.textContent = label
     if (playButton && playButton.getAttribute("aria-label") !== (playing ? "Pausar" : "Tocar")) {
       playButton.setAttribute("aria-label", playing ? "Pausar" : "Tocar")
     }
   }
-  audio.addEventListener("play", () => setStatus(true))
-  audio.addEventListener("playing", () => setStatus(true))
+  audio.addEventListener("play", () => {
+    syncEraPlaylist()
+    if (!audio.paused) setStatus(true)
+  })
+  audio.addEventListener("playing", () => {
+    syncEraPlaylist()
+    if (!audio.paused) setStatus(true)
+  })
   audio.addEventListener("timeupdate", () => setStatus(!audio.paused))
   audio.addEventListener("pause", () => setStatus(false))
   audio.addEventListener("ended", () => setTrack(trackIndex + 1, true))
@@ -820,8 +798,10 @@ export function installPlatformEnhancements(doc: Document) {
     if (button.classList.contains("sv-play") || button.classList.contains("svs-play")) {
       event.preventDefault()
       event.stopImmediatePropagation()
-      if (audio.paused) void audio.play().catch(() => setStatus(false))
-      else audio.pause()
+      if (audio.paused) {
+        syncEraPlaylist()
+        void audio.play().catch(() => setStatus(false))
+      } else audio.pause()
     } else if (button.classList.contains("svs-next")) {
       event.preventDefault()
       event.stopImmediatePropagation()
@@ -848,6 +828,7 @@ export function installPlatformEnhancements(doc: Document) {
   const observer = new MutationObserver(() => {
     updateScene()
     restorePortrait()
+    syncEraPlaylist()
     ensurePlayerControls()
     ensureComposerInstructions(doc)
     updateSceneClock()
