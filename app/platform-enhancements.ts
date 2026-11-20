@@ -47,7 +47,51 @@ const tracks: Track[] = [
 ]
 
 const enhancementStyles = `
-  .sv-v0-scene { transition: background-image .35s ease; }
+  body, .svs-pad { background-color: #020203 !important; background-image: none !important; }
+  .sv-v0-scene {
+    transition: none !important;
+    background-color: #020203 !important;
+    background-attachment: scroll !important;
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+  }
+  .sc-host > div > div[style*="position: fixed"][style*="z-index: 0"] { background: transparent !important; background-image: none !important; }
+  .sc-host > div > div[style*="position: fixed"][style*="z-index: 0"] > div[style*="fundos/noir"] {
+    background: none !important; filter: none !important; transform: none !important; opacity: 0 !important;
+    transition: none !important; will-change: auto !important;
+  }
+  .sv-hdrwrap, .sv-hdrwrap > .sv-hdr {
+    background-color: #010101 !important;
+    background-image: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  .sv-hdrwrap::before, .sv-hdrwrap::after, .sv-hdr::before, .sv-hdr::after {
+    content: none !important;
+    display: none !important;
+  }
+  .sv-content {
+    box-sizing: border-box !important;
+    min-height: 100dvh !important;
+    padding-bottom: clamp(132px, 20dvh, 200px) !important;
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+  .sv-to { display: none !important; }
+  .sv-v0-secret-field { display: none !important; }
+  .sv-v0-chat-help { margin: 8px 0 0; color: rgb(255 255 255 / 62%); font: 12px/1.5 var(--font-courier, monospace); }
+  .sv-v0-chat-status { min-height: 1.5em; margin: 4px 0 0; color: #eee; font: 12px/1.5 var(--font-courier, monospace); }
+  .sv-hdrwrap > div {
+    flex-wrap: nowrap !important;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+  .sv-hdrwrap > div::-webkit-scrollbar { display: none; }
+  .sv-hdrwrap > div > .sv-tab { flex: 0 0 auto !important; }
+  @media (max-width: 600px) {
+    .sv-hdrwrap > div { justify-content: flex-start !important; }
+  }
   .svr-foto { position: relative !important; overflow: hidden !important; }
   .svr-foto .sv-v0-portrait { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; filter: grayscale(1) contrast(1.08); }
   .sv-v0-portrait-picker { width: min(94vw, 760px); max-height: min(88vh, 780px); padding: 22px; border: 1px solid #777; color: #f3f3f3; background: #101012; box-shadow: 0 20px 80px #000; }
@@ -69,14 +113,68 @@ const enhancementStyles = `
   .sv-v0-track-artist { display: block; margin-top: 2px; color: #aaa; font: 10px/1.4 Oswald, sans-serif; }
   .svs-b.sv-v0-list-button { width: auto; min-width: 42px; padding: 0 8px; font-size: 9px; letter-spacing: .06em; }
   .sv-v0-expand { display: none; }
-  .svs.cl .sv-v0-expand { position: absolute; inset: 0; z-index: 2; display: grid; width: 40px; height: 40px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: #f3f3f3; font-size: 18px; cursor: pointer; }
+  .svs.cl .sv-v0-expand { position: absolute; inset: 0; z-index: 2; display: grid; width: 28px; height: 28px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: rgb(255 255 255 / 68%); font-size: 14px; cursor: pointer; }
+  .svs.cl { width: 48px !important; height: 48px !important; opacity: .62; border-color: rgb(255 255 255 / 18%) !important; background: rgb(0 0 0 / 48%) !important; }
+  .svs.cl:hover, .svs.cl:focus-within { opacity: 1; }
+  .sv-content button:hover, .sv-content button:focus-visible,
+  .sv-content a:hover, .sv-content a:focus-visible,
+  .sv-content input:hover, .sv-content input:focus-visible,
+  .sv-content select:hover, .sv-content select:focus-visible,
+  .sv-content textarea:hover, .sv-content textarea:focus-visible,
+  .sv-content summary:hover, .sv-content summary:focus-visible {
+    border-color: #fff !important;
+    outline-color: #fff !important;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 72%) !important;
+  }
+  .sv-v0-epigraph { font-size: clamp(16px, 4.8vw, 23px) !important; line-height: 1.28 !important; margin-block: 12px !important; max-width: 100% !important; }
+  .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; line-height: 1.3 !important; letter-spacing: .1em !important; }
+  .sv-v0-mobile-copy { width: 100% !important; max-width: none !important; font-size: clamp(13px, 3.6vw, 15px) !important; line-height: 1.52 !important; overflow-wrap: break-word !important; word-break: normal !important; }
+  .sv-v0-chat-status:empty { display: none; }
+  .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl {
+    transition: color .22s ease, background-color .22s ease, border-color .22s ease, box-shadow .22s ease, opacity .25s ease;
+  }
+  .sv-hdrwrap .sv-tab:hover, .sv-hdrwrap .sv-tab:focus-visible {
+    color: #fff !important;
+    border-color: #fff !important;
+    outline-color: #fff !important;
+    box-shadow: 0 0 0 1px rgb(255 255 255 / 68%) !important;
+  }
   @media (max-width: 600px) {
+    .sv-content { width: 100% !important; max-width: 100vw !important; padding: 18px 12px clamp(132px, 20dvh, 200px) !important; overflow-x: hidden !important; }
+    .sv-content .sv-doc { box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; padding: 14px !important; gap: 18px !important; }
+    .sv-content p, .sv-content blockquote { width: 100%; max-width: 100% !important; font-size: clamp(13px, 3.6vw, 15px) !important; line-height: 1.52 !important; overflow-wrap: break-word !important; word-break: normal !important; text-wrap: pretty; }
+    .sv-content h1, .sv-content h2, .sv-content h3 { max-width: 100% !important; line-height: 1.12 !important; overflow-wrap: break-word !important; word-break: normal !important; }
+    .sv-modes, .svmini-modes { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; width: 100% !important; min-width: 0 !important; }
+    .sv-modes > button, .svmini-modes > button { box-sizing: border-box !important; min-width: 0 !important; width: 100% !important; padding: 9px 3px !important; font-size: 10px !important; letter-spacing: .07em !important; white-space: nowrap !important; text-align: center !important; }
+    .svf-hd { display: grid !important; grid-template-columns: minmax(72px, 88px) minmax(0, 1fr) !important; align-items: start !important; justify-content: stretch !important; gap: 12px !important; width: 100% !important; margin-bottom: 14px !important; }
+    .svf-ret { grid-column: 1 !important; grid-row: 1 / span 2 !important; width: 88px !important; min-width: 0 !important; }
+    .svr-foto { width: 88px !important; height: 118px !important; min-height: 0 !important; }
+    .svr-foto .sv-v0-portrait { min-height: 0 !important; }
+    .svf-hd > :nth-child(2) { grid-column: 2 !important; grid-row: 1 !important; width: 100% !important; min-width: 0 !important; align-self: start !important; }
+    .svf-hd > :nth-child(2) > div:nth-child(2) { margin-top: 8px !important; font-size: clamp(22px, 5.8vw, 30px) !important; line-height: 1.08 !important; overflow-wrap: break-word !important; word-break: normal !important; }
+    .svf-meta { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 8px !important; min-width: 0 !important; }
+    .svf-meta > div { min-width: 0 !important; }
+    .svf-meta small { font-size: 10px !important; letter-spacing: .14em !important; }
+    .svf-meta b { font-size: clamp(13px, 3.5vw, 16px) !important; line-height: 1.22 !important; overflow-wrap: break-word !important; word-break: normal !important; }
+    .svf-hd > .sv-pronto { grid-column: 2 !important; grid-row: 2 !important; align-items: stretch !important; width: 100% !important; min-width: 0 !important; }
+    .svf-hd > .sv-pronto select { box-sizing: border-box !important; width: 100% !important; min-width: 0 !important; font-size: 12px !important; }
+    .sv-v0-profile-actions { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 7px !important; align-items: center !important; }
+    .sv-v0-profile-actions > * { min-width: 0 !important; }
+    .sv-v0-profile-actions :is(button, a, [role=button]) { box-sizing: border-box !important; width: 100% !important; min-width: 0 !important; padding: 8px 3px !important; font-size: 9px !important; letter-spacing: .03em !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
     .sv-v0-portrait-picker { padding: 16px; }
     .sv-v0-portrait-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
     .sv-v0-portrait-choice img { aspect-ratio: 1/1; }
-    .svr-foto .sv-v0-portrait { min-height: 160px; }
+    .svr-foto .sv-v0-portrait { min-height: 0; }
+    .sv-v0-epigraph { font-size: clamp(17px, 5vw, 22px) !important; line-height: 1.25 !important; }
+    .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; }
+    .sv-v0-chat-help, .sv-v0-chat-status { font-size: 11px; }
+    .sv-compose { display: flex !important; align-items: stretch !important; gap: 8px !important; min-width: 0 !important; padding: 8px !important; }
+    .sv-compose textarea { box-sizing: border-box !important; flex: 1 1 auto !important; min-width: 0 !important; min-height: 54px !important; padding: 10px !important; font-size: 16px !important; line-height: 1.35 !important; }
+    .sv-compose > button { flex: 0 0 auto !important; min-width: 66px !important; padding: 8px !important; font-size: 10px !important; letter-spacing: .08em !important; }
   }
-  @media (prefers-reduced-motion: reduce) { .sv-v0-scene { transition: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .sv-v0-scene, .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl { transition: none !important; animation: none !important; }
+  }
 `
 
 function getActiveSlug(doc: Document) {
@@ -85,6 +183,309 @@ function getActiveSlug(doc: Document) {
     return typeof profile?.slug === "string" ? profile.slug : "default"
   } catch {
     return "default"
+  }
+}
+
+type AutoMemoryKind = "nota" | "contato" | "laço"
+type AutoMemoryItem = { kind: AutoMemoryKind; text: string }
+type NarratorRequest = {
+  system?: string
+  messages?: Array<{ role?: string; content?: unknown }>
+  [key: string]: unknown
+}
+type NarratorWindow = Window & {
+  svAI?: (request: NarratorRequest) => Promise<unknown>
+  __svV0MemoryInstalled?: boolean
+}
+
+const memoryLabels: Record<AutoMemoryKind, string> = {
+  nota: "Nota",
+  contato: "Contato",
+  "laço": "Laço",
+}
+
+function normalizeMemoryText(value: string) {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim().toLocaleLowerCase("pt-BR")
+}
+
+function memoryStorageKey(doc: Document) {
+  return `sv-v0-auto-memory:${getActiveSlug(doc)}`
+}
+
+function readAutoMemory(doc: Document): AutoMemoryItem[] {
+  try {
+    const stored = JSON.parse(doc.defaultView?.localStorage.getItem(memoryStorageKey(doc)) ?? "[]")
+    return Array.isArray(stored)
+      ? stored.filter((item): item is AutoMemoryItem =>
+          item && ["nota", "contato", "laço"].includes(item.kind) && typeof item.text === "string",
+        )
+      : []
+  } catch {
+    return []
+  }
+}
+
+function formatAutoMemory(item: AutoMemoryItem) {
+  return `${memoryLabels[item.kind]} · ${item.text}`
+}
+
+function dispatchDocumentEvent(doc: Document, target: EventTarget, type: "input" | "change") {
+  const event = doc.createEvent("Event")
+  event.initEvent(type, true, false)
+  target.dispatchEvent(event)
+}
+
+function syncAutoMemory(doc: Document) {
+  const field = doc.querySelector<HTMLTextAreaElement>('.sv-content .sv-step textarea.sv-pauta[placeholder=""]')
+  const win = doc.defaultView
+  if (!field || !win) return
+
+  const existing = new Set(field.value.split("\n").map(normalizeMemoryText))
+  const additions = readAutoMemory(doc)
+    .map(formatAutoMemory)
+    .filter((line) => !existing.has(normalizeMemoryText(line)))
+  if (!additions.length) return
+
+  const nextValue = [field.value.trimEnd(), ...additions].filter(Boolean).join("\n")
+  const setter = Object.getOwnPropertyDescriptor(win.HTMLTextAreaElement.prototype, "value")?.set
+  if (setter) setter.call(field, nextValue)
+  else field.value = nextValue
+
+  dispatchDocumentEvent(doc, field, "input")
+  dispatchDocumentEvent(doc, field, "change")
+}
+
+function toAutoMemoryItems(kind: AutoMemoryKind, value: unknown): AutoMemoryItem[] {
+  if (!Array.isArray(value)) return []
+  return value
+    .filter((entry): entry is string => typeof entry === "string")
+    .map((entry) => entry.replace(/\s+/g, " ").trim().slice(0, 240))
+    .filter(Boolean)
+    .slice(0, 5)
+    .map((text) => ({ kind, text }))
+}
+
+function saveAutoMemory(doc: Document, items: AutoMemoryItem[]) {
+  if (!items.length) return
+  const win = doc.defaultView
+  if (!win) return
+
+  const merged = readAutoMemory(doc)
+  const seen = new Set(merged.map((item) => normalizeMemoryText(formatAutoMemory(item))))
+  for (const item of items) {
+    const key = normalizeMemoryText(formatAutoMemory(item))
+    if (!seen.has(key)) {
+      merged.push(item)
+      seen.add(key)
+    }
+  }
+
+  try {
+    win.localStorage.setItem(memoryStorageKey(doc), JSON.stringify(merged.slice(-120)))
+  } catch {
+    return
+  }
+  syncAutoMemory(doc)
+}
+
+function installNarratorMemoryBridge(doc: Document) {
+  const win = doc.defaultView as NarratorWindow | null
+  if (!win?.svAI || win.__svV0MemoryInstalled) return
+
+  const original = win.svAI.bind(win)
+  win.svAI = async (request) => {
+    const userText = (request.messages ?? [])
+      .map((message) => typeof message.content === "string" ? message.content : "")
+      .join("\n")
+    const context = `${request.system ?? ""}\n${userText}`
+    const isDirectorQuestion = /PERGUNTA FORA DE CENA AO DIRETOR|PERGUNTA DO JOGADOR AO DIRETOR/i.test(context)
+    const isSceneAction = !isDirectorQuestion && /\bAGORA:/i.test(userText)
+    const prompt = isSceneAction
+      ? `${request.system ?? ""}\n\nREGISTRO AUTOMÁTICO DA FICHA: depois da narração, inclua um bloco final <SVFICHA>{\"notas\":[],\"contatos\":[],\"lacos\":[]}</SVFICHA>. Preencha as listas somente com fatos novos, confirmados nesta interação: notas para pistas e acontecimentos importantes; contatos para pessoas nomeadas e a relação estabelecida; lacos para mudanças reais em vínculos existentes. Não invente relações, não repita dados já conhecidos e deixe listas vazias quando não houver atualização. O bloco é metadado e não deve aparecer na narração.}`
+      : request.system
+
+    const response = await original({ ...request, system: prompt })
+    if (!isSceneAction || typeof response !== "string") return response
+
+    const marker = /<SVFICHA>([\s\S]*?)<\/SVFICHA>/gi
+    let cleanResponse = response
+    for (const match of response.matchAll(marker)) {
+      try {
+        const data = JSON.parse(match[1]) as { notas?: unknown; contatos?: unknown; lacos?: unknown }
+        saveAutoMemory(doc, [
+          ...toAutoMemoryItems("nota", data.notas),
+          ...toAutoMemoryItems("contato", data.contatos),
+          ...toAutoMemoryItems("laço", data.lacos),
+        ])
+      } catch {
+        continue
+      }
+    }
+    cleanResponse = cleanResponse.replace(marker, "").replace(/\n{3,}/g, "\n\n").trim()
+    return cleanResponse
+  }
+  win.__svV0MemoryInstalled = true
+}
+
+function hideCharacterSecret(doc: Document) {
+  const secret = doc.querySelector<HTMLElement>(".sv-content .sv-seg-grid")
+  secret?.parentElement?.classList.add("sv-v0-secret-field")
+}
+
+function ensureComposerInstructions(doc: Document) {
+  const composer = doc.querySelector<HTMLElement>(".sv-compose")
+  const textarea = composer?.querySelector<HTMLTextAreaElement>("textarea")
+  if (!composer || !textarea) return
+
+  let help = doc.getElementById("sv-v0-chat-help")
+  if (!help) {
+    help = doc.createElement("p")
+    help.id = "sv-v0-chat-help"
+    help.className = "sv-v0-chat-help"
+    help.textContent = "Para falar com alguém em cena: /Nome do personagem: sua fala."
+  }
+  if (help.previousElementSibling !== composer) composer.insertAdjacentElement("afterend", help)
+
+  let status = doc.getElementById("sv-v0-chat-status")
+  if (!status) {
+    status = doc.createElement("p")
+    status.id = "sv-v0-chat-status"
+    status.className = "sv-v0-chat-status"
+    status.setAttribute("role", "status")
+    status.setAttribute("aria-live", "polite")
+    status.setAttribute("aria-atomic", "true")
+  }
+  if (status.previousElementSibling !== help) help.insertAdjacentElement("afterend", status)
+
+  const describedBy = new Set((textarea.getAttribute("aria-describedby") ?? "").split(/\s+/).filter(Boolean))
+  describedBy.add(help.id)
+  textarea.setAttribute("aria-describedby", [...describedBy].join(" "))
+}
+
+function installComposerEnhancements(doc: Document) {
+  ensureComposerInstructions(doc)
+  doc.addEventListener("click", (event) => {
+    const target = event.target as Element | null
+    const button = target?.closest<HTMLButtonElement>('button[aria-label="Enviar para o narrador"]')
+    const composer = button?.closest<HTMLElement>(".sv-compose")
+    const textarea = composer?.querySelector<HTMLTextAreaElement>("textarea")
+    const recipient = composer?.querySelector<HTMLSelectElement>(".sv-to select")
+    if (!button || !composer || !textarea || !recipient) return
+
+    const status = doc.getElementById("sv-v0-chat-status")
+    const setStatus = (message: string) => { if (status) status.textContent = message }
+    const raw = textarea.value.trim()
+    if (!raw.startsWith("/")) {
+      recipient.value = ""
+      dispatchDocumentEvent(doc, recipient, "change")
+      setStatus("")
+      return
+    }
+
+    event.preventDefault()
+    event.stopImmediatePropagation()
+    const command = raw.slice(1).trim()
+    const separator = command.indexOf(":")
+    const requestedName = separator >= 0 ? command.slice(0, separator).trim() : ""
+    const message = separator >= 0 ? command.slice(separator + 1).trim() : ""
+    const options = [...recipient.options].filter((option) =>
+      option.value && normalizeMemoryText(option.textContent ?? "") !== "a cena",
+    )
+    const matched = options.find((option) => {
+      const label = option.textContent?.trim() ?? ""
+      const shortName = label.split(/\s*[·—–]\s*/, 1)[0].trim()
+      const requested = normalizeMemoryText(requestedName)
+      return requested && (requested === normalizeMemoryText(shortName) || requested === normalizeMemoryText(label))
+    })
+
+    if (!requestedName || !message || !matched) {
+      setStatus(!options.length
+        ? "Não há personagens disponíveis nesta cena. Use /Nome: fala quando alguém estiver presente."
+        : !requestedName || separator < 0 || !message
+          ? "Use o formato /Nome exato: sua fala."
+          : `Não encontrei “${requestedName}” nesta cena. Confira o nome no elenco.`)
+      return
+    }
+
+    recipient.value = matched.value
+        dispatchDocumentEvent(doc, recipient, "change")
+    textarea.value = message
+    dispatchDocumentEvent(doc, textarea, "input")
+    setStatus("")
+    doc.defaultView?.setTimeout(() => {
+      if (recipient.value === matched.value) {
+        recipient.value = ""
+        dispatchDocumentEvent(doc, recipient, "change")
+      }
+    }, 0)
+  }, true)
+}
+
+function renameInvestigationButtons(doc: Document) {
+  const buttons = [...doc.querySelectorAll<HTMLButtonElement>(".sv-content button")]
+  for (const button of buttons) {
+    const match = button.textContent?.trim().match(/^\+([1-3])$/)
+    if (!match) continue
+
+    let group: HTMLElement | null = button.parentElement
+    let hasFreeUse = false
+    for (let depth = 0; group && depth < 5; depth++, group = group.parentElement) {
+      const labels = [...group.querySelectorAll("button")].map((item) => item.textContent?.trim() ?? "")
+      if (labels.some((label) => /^(usar|central)$/i.test(label))) {
+        hasFreeUse = true
+        break
+      }
+    }
+    if (!hasFreeUse) continue
+
+    const amount = Number(match[1])
+    button.textContent = `Pagar ${amount}`
+    button.setAttribute("aria-label", `Pagar ${amount} ponto${amount === 1 ? "" : "s"} da reserva da habilidade`)
+    button.title = `Gasta ${amount} ponto${amount === 1 ? "" : "s"} da reserva e amplia a pista.`
+
+    const freeButton = [...(group?.querySelectorAll<HTMLButtonElement>("button") ?? [])]
+      .find((item) => /^usar$/i.test(item.textContent?.trim() ?? ""))
+    if (freeButton) {
+      freeButton.textContent = "Central"
+      freeButton.setAttribute("aria-label", "Receber a pista central sem gastar reserva")
+      freeButton.title = "Recebe apenas a pista central, sem custo de reserva."
+    }
+  }
+}
+
+function tuneMobileCopy(doc: Document) {
+  const blocks = [...doc.querySelectorAll<HTMLElement>(".sv-content p, .sv-content blockquote, .sv-content div, .sv-content span")]
+  for (const block of blocks) {
+    const text = (block.innerText ?? block.textContent ?? "").replace(/\s+/g, " ").trim()
+    if (text.length < 150 || block.querySelector("button, input, select, textarea")) continue
+    const hasLongChild = [...block.children].some((child) => (child.textContent ?? "").trim().length >= 150)
+    if (!hasLongChild) block.classList.add("sv-v0-mobile-copy")
+  }
+
+  const quote = blocks
+    .filter((block) => /Em Saint Village a chuva/i.test(block.textContent ?? ""))
+    .sort((a, b) => a.children.length - b.children.length)[0]
+  quote?.classList.add("sv-v0-epigraph")
+  const author = blocks
+    .filter((block) => /Jack Reilly,?\s*detetive particular/i.test(block.textContent ?? ""))
+    .sort((a, b) => a.children.length - b.children.length)[0]
+  author?.classList.add("sv-v0-epigraph-author")
+}
+
+function compactProfileActions(doc: Document) {
+  const controls = [...doc.querySelectorAll<HTMLElement>("button, a, [role=button]")]
+  const change = controls.find((item) => /trocar.*investigador/i.test(item.textContent ?? ""))
+  const exportButton = controls.find((item) => /exportar/i.test(item.textContent ?? ""))
+  const importButton = controls.find((item) => /importar/i.test(item.textContent ?? ""))
+  if (!change || !exportButton || !importButton) return
+
+  let group: HTMLElement | null = change.parentElement
+  for (let depth = 0; group && depth < 5; depth++, group = group.parentElement) {
+    const childControls = group.querySelectorAll("button, a, [role=button]")
+    if (group.contains(exportButton) && group.contains(importButton) && childControls.length <= 8) {
+      group.classList.add("sv-v0-profile-actions")
+      return
+    }
   }
 }
 
@@ -115,18 +516,28 @@ export function installPlatformEnhancements(doc: Document) {
     const src = key === "ficha" && equipmentOpen ? backgrounds.noir7 : key === "cronica" && doc.querySelector(".sv-home") ? backgrounds.noir4 : sceneByTab[key] ?? backgrounds.noir8
     if (src === activeScene && appRoot.dataset.svScene === src && content?.dataset.svScene === src) return
     activeScene = src
-    for (const target of [appRoot, content]) {
-      if (!target) continue
-      target.dataset.svScene = src
-      target.classList.add("sv-v0-scene")
-      target.style.setProperty("background-image", `linear-gradient(180deg, rgb(14 14 16 / 50%), rgb(14 14 16 / 72%)), url("${src}")`, "important")
-      target.style.setProperty("background-size", "cover", "important")
-      target.style.setProperty("background-position", "center top", "important")
-      target.style.setProperty("background-attachment", "fixed", "important")
-      target.style.setProperty("background-repeat", "no-repeat", "important")
+    appRoot.dataset.svScene = src
+    appRoot.classList.add("sv-v0-scene")
+    appRoot.style.setProperty("background-image", `linear-gradient(180deg, rgb(0 0 0 / 95%), rgb(0 0 0 / 97%)), url("${src}")`, "important")
+    appRoot.style.setProperty("background-size", "cover", "important")
+    appRoot.style.setProperty("background-position", "center top", "important")
+    appRoot.style.setProperty("background-attachment", "scroll", "important")
+    appRoot.style.setProperty("background-repeat", "no-repeat", "important")
+    if (content) {
+      content.dataset.svScene = src
+      content.classList.add("sv-v0-scene")
+      content.style.setProperty("background-image", "none", "important")
+      content.style.setProperty("background-color", "transparent", "important")
     }
   }
   updateScene()
+  installComposerEnhancements(doc)
+  installNarratorMemoryBridge(doc)
+  hideCharacterSecret(doc)
+  syncAutoMemory(doc)
+  renameInvestigationButtons(doc)
+  compactProfileActions(doc)
+  tuneMobileCopy(doc)
 
   const portraitDialog = doc.createElement("dialog")
   portraitDialog.className = "sv-v0-portrait-picker"
@@ -351,6 +762,13 @@ export function installPlatformEnhancements(doc: Document) {
     updateScene()
     restorePortrait()
     ensurePlayerControls()
+    ensureComposerInstructions(doc)
+    installNarratorMemoryBridge(doc)
+    hideCharacterSecret(doc)
+    syncAutoMemory(doc)
+    renameInvestigationButtons(doc)
+    compactProfileActions(doc)
+    tuneMobileCopy(doc)
     setStatus(!audio.paused)
   })
   observer.observe(doc.body, { subtree: true, childList: true, attributes: true, attributeFilter: ["aria-selected", "open"] })

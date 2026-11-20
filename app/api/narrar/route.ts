@@ -58,7 +58,7 @@ export async function POST(req: Request) {
 
     try {
       const result = await generateText({
-        model: google('gemini-3.5-flash'),
+        model: google('gemini-3.5-flash-lite'),
         system: pedido.data.system,
         messages: pedido.data.messages,
         maxOutputTokens: Math.min(pedido.data.max_tokens ?? 900, 1500),
