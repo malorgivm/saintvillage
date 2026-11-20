@@ -71,36 +71,6 @@ const enhancementStyles = `
     content: none !important;
     display: none !important;
   }
-  .sv-hmenu { position: relative !important; z-index: 80; }
-  .sv-v0-learning-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    z-index: 90;
-    min-width: 150px;
-    padding: 5px;
-    border: 1px solid rgb(255 255 255 / 28%);
-    background: #080809;
-    box-shadow: 0 14px 38px rgb(0 0 0 / 78%);
-  }
-  .sv-v0-learning-menu[hidden] { display: none !important; }
-  .sv-v0-learning-menu button {
-    display: block;
-    width: 100%;
-    padding: 10px 12px;
-    border: 0;
-    background: transparent;
-    color: #eee;
-    font: 11px/1.2 Oswald, sans-serif;
-    letter-spacing: .18em;
-    text-align: left;
-    cursor: pointer;
-  }
-  .sv-v0-learning-menu button:hover, .sv-v0-learning-menu button:focus-visible {
-    background: #202022;
-    color: #fff;
-    outline: 1px solid #fff;
-  }
   .sv-content {
     box-sizing: border-box !important;
     min-height: 100dvh !important;
@@ -229,51 +199,6 @@ const enhancementStyles = `
     .sv-v0-scene, .sv-content :where(button, a, input, select, textarea, summary), .sv-hdrwrap .sv-tab, .svs.cl { transition: none !important; animation: none !important; }
   }
   `
-
-function installLearningMenu(doc: Document) {
-  const menuRoot = doc.querySelector<HTMLElement>(".sv-hmenu")
-  const trigger = menuRoot?.querySelector<HTMLButtonElement>(".sv-burger")
-  const learningTab = doc.querySelector<HTMLButtonElement>('.sv-tab[data-k="tutorial"]')
-  if (!menuRoot || !trigger || !learningTab || menuRoot.querySelector(".sv-v0-learning-menu")) return
-
-  const menu = doc.createElement("div")
-  menu.id = "sv-v0-learning-menu"
-  menu.className = "sv-v0-learning-menu"
-  menu.hidden = true
-  menu.setAttribute("aria-label", "Navegação adicional")
-
-  const item = doc.createElement("button")
-  item.type = "button"
-  item.textContent = "APRENDER"
-  const closeMenu = () => {
-    menu.hidden = true
-    trigger.setAttribute("aria-expanded", "false")
-  }
-
-  item.addEventListener("click", () => {
-    learningTab.click()
-    closeMenu()
-    trigger.focus()
-  })
-  menu.append(item)
-  menuRoot.append(menu)
-  trigger.setAttribute("aria-controls", menu.id)
-  trigger.addEventListener("click", () => {
-    const isOpening = menu.hidden
-    menu.hidden = !isOpening
-    trigger.setAttribute("aria-expanded", String(isOpening))
-    if (isOpening) item.focus()
-  })
-  doc.addEventListener("click", (event) => {
-    if (!menuRoot.contains(event.target as Node)) closeMenu()
-  })
-  doc.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !menu.hidden) {
-      closeMenu()
-      trigger.focus()
-    }
-  })
-}
 
 function getActiveSlug(doc: Document) {
   try {
@@ -653,7 +578,6 @@ export function installPlatformEnhancements(doc: Document) {
   style.id = "sv-v0-enhancements"
   style.textContent = enhancementStyles
   doc.head.append(style)
-  installLearningMenu(doc)
 
   const appRoot = doc.querySelector<HTMLElement>(".sc-host > div")
   const sceneByTab: Record<string, string> = {
