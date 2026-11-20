@@ -13,10 +13,8 @@ const noirAccentStyles = `
   .sv-hdr [aria-label="Saint Village"] {
     color: #fff !important;
     text-shadow: 0 0 2px #fff, 0 0 8px rgb(255 255 255 / 42%), 0 0 18px rgb(255 255 255 / 20%) !important;
-    animation: sv-logo-flicker 7s ease-in-out infinite alternate;
+    animation: sv-logo-glow 4s linear infinite;
   }
-  .sv-nl:nth-child(3n) { animation-delay: 1.4s; }
-  .sv-nl:nth-child(4n) { animation-delay: 2.8s; }
   .sv-login { border-top-color: #d4d4d4 !important; }
   .sv-guide-n,
   .sv-content [style*="--sv-accent"],
@@ -40,9 +38,11 @@ const noirAccentStyles = `
     color: #f3f3f3 !important;
     outline-color: #d4d4d4 !important;
   }
-  @keyframes sv-logo-flicker {
-    0%, 100% { opacity: .93; }
+  @keyframes sv-logo-glow {
+    0%, 100% { opacity: .96; }
+    25% { opacity: .985; }
     50% { opacity: 1; }
+    75% { opacity: .985; }
   }
   @media (prefers-reduced-motion: reduce) {
     .sv-nl, .sv-hdr [aria-label="Saint Village"] { animation: none; }

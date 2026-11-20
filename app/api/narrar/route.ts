@@ -15,7 +15,7 @@ import type { Caso, Cena, Investigador } from '@/lib/game/types'
 export const maxDuration = 60
 
 const pedidoLegado = z.object({
-  system: z.string().max(24000).default(''),
+  system: z.string().max(50000).default(''),
   messages: z.array(z.object({
     role: z.enum(['user', 'assistant']),
     content: z.string().max(20000),
