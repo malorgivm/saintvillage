@@ -48,6 +48,18 @@ const tracks: Track[] = [
 
 const enhancementStyles = `
   .sv-v0-scene { transition: background-image .35s ease; }
+  html.sv-sideoff .svt-invite,
+  html.sv-sideoff .sv-guia { display: none !important; }
+  .sv-content .sv-log {
+    min-height: 0 !important;
+    max-height: max(220px, calc(100dvh - 245px)) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+  }
+  html.sv-sideoff .sv-content .sv-log {
+    max-height: max(220px, calc(100dvh - 245px)) !important;
+  }
   .svr-foto { position: relative !important; overflow: hidden !important; }
   .svr-foto .sv-v0-portrait { display: block; width: 100%; height: 100%; min-height: 190px; object-fit: cover; filter: grayscale(1) contrast(1.08); }
   .sv-v0-portrait-picker { width: min(94vw, 760px); max-height: min(88vh, 780px); padding: 22px; border: 1px solid #777; color: #f3f3f3; background: #101012; box-shadow: 0 20px 80px #000; }
@@ -119,7 +131,7 @@ export function installPlatformEnhancements(doc: Document) {
       if (!target) continue
       target.dataset.svScene = src
       target.classList.add("sv-v0-scene")
-      target.style.setProperty("background-image", `linear-gradient(180deg, rgb(14 14 16 / 50%), rgb(14 14 16 / 72%)), url("${src}")`, "important")
+      target.style.setProperty("background-image", `linear-gradient(180deg, rgb(10 11 12 / 68%), rgb(10 11 12 / 84%)), url("${src}")`, "important")
       target.style.setProperty("background-size", "cover", "important")
       target.style.setProperty("background-position", "center top", "important")
       target.style.setProperty("background-attachment", "fixed", "important")
