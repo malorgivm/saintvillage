@@ -1,5 +1,7 @@
 'use client'
 
+import { installPlatformEnhancements } from "./platform-enhancements"
+
 const noirAccentStyles = `
   :root, .sv-frost, .sv-guide, .sv-content {
     --sv-accent: #d4d4d4 !important;
@@ -58,11 +60,14 @@ export default function Page() {
         allow="autoplay"
         onLoad={(event) => {
           const doc = event.currentTarget.contentDocument
-          if (!doc?.head || doc.getElementById('sv-noir-accent-styles')) return
-          const style = doc.createElement('style')
-          style.id = 'sv-noir-accent-styles'
-          style.textContent = noirAccentStyles
-          doc.head.append(style)
+          if (!doc?.head) return
+          if (!doc.getElementById('sv-noir-accent-styles')) {
+            const style = doc.createElement('style')
+            style.id = 'sv-noir-accent-styles'
+            style.textContent = noirAccentStyles
+            doc.head.append(style)
+          }
+          installPlatformEnhancements(doc)
         }}
         className="h-full w-full border-0"
       />
