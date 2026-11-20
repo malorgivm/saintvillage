@@ -77,7 +77,7 @@ const enhancementStyles = `
   .sv-content {
     box-sizing: border-box !important;
     min-height: 100dvh !important;
-    padding-bottom: clamp(132px, 20dvh, 200px) !important;
+    padding-bottom: calc(clamp(132px, 20dvh, 200px) + env(safe-area-inset-bottom, 0px)) !important;
     background-color: transparent !important;
     background-image: none !important;
   }
@@ -127,7 +127,7 @@ const enhancementStyles = `
   html.sv-casomin .svcaso { transform: none !important; }
   @media (min-width: 768px) {
     .sv-mrow { display: flex !important; flex-wrap: nowrap !important; align-items: stretch !important; gap: 12px !important; width: 100% !important; min-width: 0 !important; }
-    .sv-mrow > .sv-modes { flex: 1 1 auto !important; min-width: 0 !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .sv-mrow > .sv-modes { flex: 1 1 auto !important; min-width: 0 !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .sv-dkb { display: flex !important; flex: 0 1 auto !important; flex-direction: row !important; flex-wrap: nowrap !important; gap: 6px !important; min-width: 0 !important; margin-left: 0 !important; }
     .sv-content .sv-dkb button { flex: 0 1 auto !important; min-width: 0 !important; white-space: nowrap !important; }
   }
@@ -166,12 +166,12 @@ const enhancementStyles = `
     box-shadow: 0 0 0 1px rgb(255 255 255 / 68%) !important;
   }
   @media (max-width: 600px) {
-    .sv-content { width: 100% !important; max-width: 100vw !important; padding: 18px 12px clamp(132px, 20dvh, 200px) !important; overflow-x: hidden !important; }
+    .sv-content { width: 100% !important; max-width: 100vw !important; padding: 18px 12px calc(clamp(132px, 20dvh, 200px) + env(safe-area-inset-bottom, 0px)) !important; overflow-x: hidden !important; }
     .sv-content .sv-doc { box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; padding: 14px !important; gap: 18px !important; }
     .sv-content p, .sv-content blockquote { width: 100%; max-width: 100% !important; font-size: clamp(12px, 3.4vw, 13px) !important; line-height: 1.38 !important; overflow-wrap: break-word !important; word-break: normal !important; text-wrap: pretty; }
     .sv-v0-mobile-copy { font-size: clamp(12px, 3.4vw, 13px) !important; line-height: 1.38 !important; }
     .sv-content h1, .sv-content h2, .sv-content h3 { max-width: 100% !important; line-height: 1.12 !important; overflow-wrap: break-word !important; word-break: normal !important; }
-    .sv-modes, .svmini-modes { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; width: 100% !important; min-width: 0 !important; }
+    .sv-modes, .svmini-modes { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; width: 100% !important; min-width: 0 !important; }
     .sv-modes > button, .svmini-modes > button { box-sizing: border-box !important; min-width: 0 !important; width: 100% !important; padding: 9px 3px !important; font-size: 10px !important; letter-spacing: .07em !important; white-space: nowrap !important; text-align: center !important; }
     .svf-hd { display: grid !important; grid-template-columns: minmax(72px, 88px) minmax(0, 1fr) !important; align-items: start !important; justify-content: stretch !important; gap: 12px !important; width: 100% !important; margin-bottom: 14px !important; }
     .svf-ret { grid-column: 1 !important; grid-row: 1 / span 2 !important; width: 88px !important; min-width: 0 !important; }
@@ -194,9 +194,9 @@ const enhancementStyles = `
     .svr-foto .sv-v0-portrait { min-height: 0; }
     .sv-v0-epigraph { font-size: clamp(17px, 5vw, 22px) !important; line-height: 1.25 !important; }
     .sv-v0-epigraph-author { font-size: clamp(10px, 3vw, 13px) !important; }
-    .sv-content .sv-v0-chat-help { position: fixed !important; z-index: 45 !important; left: 0 !important; right: 0 !important; bottom: calc(58px + 56px + 2px) !important; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; height: 14px !important; margin: 0 !important; padding: 0 12px !important; overflow: hidden !important; background: rgb(8 8 9 / 96%) !important; color: rgb(255 255 255 / 48%) !important; font: 8px/14px var(--font-courier, monospace) !important; letter-spacing: -.04em !important; white-space: nowrap !important; text-overflow: ellipsis !important; pointer-events: none !important; }
+    .sv-content .sv-v0-chat-help { position: fixed !important; z-index: 45 !important; left: 0 !important; right: 0 !important; bottom: calc(58px + 56px + 2px + env(safe-area-inset-bottom, 0px)) !important; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; height: 14px !important; margin: 0 !important; padding: 0 12px !important; overflow: hidden !important; background: rgb(8 8 9 / 96%) !important; color: rgb(255 255 255 / 70%) !important; font: 10px/14px var(--font-courier, monospace) !important; letter-spacing: -.04em !important; white-space: nowrap !important; text-overflow: ellipsis !important; pointer-events: none !important; }
     .sv-v0-chat-status { font-size: 10px; }
-    .svmini { box-sizing: border-box !important; display: flex !important; flex-wrap: wrap !important; align-content: center !important; gap: 4px !important; height: auto !important; min-height: 0 !important; max-height: 82px !important; padding: 5px 10px !important; bottom: calc(58px + 56px + 18px) !important; }
+    .svmini { box-sizing: border-box !important; display: flex !important; flex-wrap: wrap !important; align-content: center !important; gap: 4px !important; height: auto !important; min-height: 0 !important; max-height: 82px !important; padding: 5px 10px !important; bottom: calc(58px + 56px + 18px + env(safe-area-inset-bottom, 0px)) !important; }
     .svmini-modes { flex: 0 0 100% !important; width: 100% !important; height: 24px !important; }
     .svmini-modes > button { height: 24px !important; padding: 3px !important; font-size: 9px !important; }
     .svmini-rest { box-sizing: border-box !important; flex: 0 0 100% !important; display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; grid-template-rows: 22px 19px !important; align-items: center !important; gap: 3px 4px !important; width: 100% !important; min-width: 0 !important; margin: 0 !important; padding: 0 !important; overflow: visible !important; font-size: 8px !important; line-height: 1.1 !important; }
@@ -445,7 +445,7 @@ function ensureComposerInstructions(doc: Document) {
     help = doc.createElement("p")
     help.id = "sv-v0-chat-help"
     help.className = "sv-v0-chat-help"
-    help.textContent = "Para falar com alguém em cena: /Nome do personagem: sua fala"
+    help.textContent = "Aja, investigue ou tire dúvidas. Fale em cena: /Nome: fala"
   }
   if (help.previousElementSibling !== composer) composer.insertAdjacentElement("afterend", help)
 
