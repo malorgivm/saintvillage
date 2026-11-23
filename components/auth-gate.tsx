@@ -149,36 +149,35 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: User) => voi
     <main className="grain relative flex min-h-dvh items-center justify-center overflow-x-hidden overflow-y-auto bg-[#09090a] px-4 py-8 text-[#e5e5e5] sm:px-6 sm:py-12">
       <style>{`@keyframes sv-auth-logo-glow { 0%, 100% { opacity: .96; } 25%, 75% { opacity: .985; } 50% { opacity: 1; } } .sv-auth-logo { color: #fff; text-shadow: 0 0 2px #fff, 0 0 8px rgb(255 255 255 / 42%), 0 0 18px rgb(255 255 255 / 20%); animation: sv-auth-logo-glow 4s linear infinite; } @media (prefers-reduced-motion: reduce) { .sv-auth-logo { animation: none; } }`}</style>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.82)),url('/fundos/noir5.jpg')] bg-cover bg-center opacity-75" aria-hidden="true" />
-      <div className="relative z-10 w-full max-w-[520px]">
+      <div className="relative z-10 w-full max-w-[440px]">
         <header className="mb-8 px-2 text-center sm:mb-10">
-          <h1 id="auth-title" className="sv-auth-logo text-[clamp(3.4rem,12vw,6rem)] leading-[.88] tracking-[0.04em]" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>Saint Village</h1>
+          <h1 id="auth-title" className="sv-auth-logo whitespace-nowrap text-[clamp(2.7rem,5.8vw,4rem)] leading-[.88] tracking-[0.04em]" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>Saint Village</h1>
         </header>
 
-        <section className="dossier mx-auto w-full border border-white/25 border-t-2 border-t-white/80 bg-zinc-500/20 px-5 py-5 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-md sm:px-8 sm:py-7" aria-labelledby="auth-form-title">
-          <div className="mb-6 border-b border-white/15 pb-5">
-            <h2 id="auth-form-title" className="font-display text-xl tracking-[0.2em] text-white sm:text-2xl">{mode === 'login' ? 'QUEM ESTÁ INVESTIGANDO?' : 'ABRA SEU ARQUIVO'}</h2>
-            <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">{mode === 'login' ? 'Entre para continuar sua crônica.' : 'Crie sua conta para guardar sua crônica.'}</p>
+        <section className="dossier mx-auto w-full border border-white/20 bg-zinc-500/20 px-5 py-5 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-md sm:px-7 sm:py-6" aria-labelledby="auth-form-title">
+          <div className="mb-5 border-b border-white/15 pb-4">
+            <h2 id="auth-form-title" className="font-display text-lg tracking-[0.18em] text-white sm:text-xl">{mode === 'login' ? 'QUEM ESTÁ INVESTIGANDO?' : 'ABRA SEU ARQUIVO'}</h2>
           </div>
 
-          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
               <label htmlFor="auth-email" className="font-display text-xs tracking-[0.16em] text-white/75">E-MAIL</label>
-              <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-12 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
+              <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="auth-password" className="font-display text-xs tracking-[0.16em] text-white/75">SENHA</label>
-              <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-12 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder={mode === 'signup' ? 'Mínimo de 8 caracteres' : 'Sua senha'} />
+              <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder={mode === 'signup' ? 'Mínimo de 8 caracteres' : 'Sua senha'} />
             </div>
 
             {error && <p className="border-l-2 border-white/70 bg-white/10 px-3 py-3 text-sm leading-relaxed text-white" role="alert">{error}</p>}
             {notice && <p className="border-l-2 border-white/70 bg-white/10 px-3 py-3 text-sm leading-relaxed text-white" role="status">{notice}</p>}
 
-            <button type="submit" disabled={pending} className="mt-1 min-h-14 w-full bg-[#e5e5e5] px-4 font-display text-sm font-semibold tracking-[0.2em] text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60">
+            <button type="submit" disabled={pending} className="mt-1 min-h-12 w-full bg-[#e5e5e5] px-4 font-display text-sm font-semibold tracking-[0.2em] text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60">
               {pending ? 'AGUARDE…' : mode === 'login' ? 'ENTRAR NO ARQUIVO' : 'CRIAR CONTA'}
             </button>
           </form>
 
-          <div className="mt-6 border-t border-white/15 pt-5 text-center font-sans text-sm text-white/65">
+          <div className="mt-5 border-t border-white/15 pt-4 text-center font-sans text-sm text-white/65">
             {mode === 'login' ? 'Primeira vez por aqui?' : 'Já tem um arquivo?'}{' '}
             <button type="button" onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(''); setNotice('') }} className="min-h-10 px-1 font-semibold text-white underline decoration-white/60 underline-offset-4 hover:decoration-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               {mode === 'login' ? 'Criar conta' : 'Entrar'}
