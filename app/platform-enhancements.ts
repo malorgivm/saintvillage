@@ -82,6 +82,7 @@ const enhancementStyles = `
     background-image: none !important;
   }
   .sv-to { display: none !important; }
+  .sv-guide { display: none !important; }
   .sv-v0-secret-field { display: none !important; }
   .sv-v0-chat-help { margin: 8px 0 0; color: rgb(255 255 255 / 62%); font: 12px/1.5 var(--font-courier, monospace); }
   .sv-v0-chat-status { min-height: 1.5em; margin: 4px 0 0; color: #eee; font: 12px/1.5 var(--font-courier, monospace); }
