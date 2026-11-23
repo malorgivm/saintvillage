@@ -146,48 +146,48 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: User) => voi
   }
 
   return (
-    <main className="grain relative flex min-h-dvh items-center justify-center overflow-x-hidden overflow-y-auto bg-[#09090a] px-5 py-8 text-[#e5e5e5]">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.63),rgba(0,0,0,.92)),url('/fundos/noir5.jpg')] bg-cover bg-center opacity-70" />
-      <section className="dossier relative z-10 w-full max-w-[410px] border px-6 py-8 sm:px-9 sm:py-10" aria-labelledby="auth-title">
-        <div className="mb-8 border-b border-white/15 pb-6 text-center">
-          <p className="font-display text-[10px] tracking-[0.35em] text-white/50">SAINT VILLAGE · 1934</p>
-          <h1 id="auth-title" className="mt-3 text-5xl tracking-[0.08em] text-white" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>A cidade da neblina</h1>
-          <p className="mt-2 font-sans text-xs leading-relaxed text-white/60">
-            Entre no seu arquivo para continuar a crônica e guardar seus investigadores.
-          </p>
-        </div>
+    <main className="grain relative flex min-h-dvh items-center justify-center overflow-x-hidden overflow-y-auto bg-[#09090a] px-4 py-8 text-[#e5e5e5] sm:px-6 sm:py-12">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.82)),url('/fundos/noir5.jpg')] bg-cover bg-center opacity-75" aria-hidden="true" />
+      <div className="relative z-10 w-full max-w-[640px]">
+        <header className="mb-7 px-2 text-center sm:mb-9">
+          <p className="font-display text-[10px] tracking-[0.36em] text-white/65 sm:text-xs">UM RPG ESTILO FILME NOIR</p>
+          <h1 id="auth-title" className="mt-2 text-[clamp(3.4rem,12vw,6rem)] leading-[.88] tracking-[0.04em] text-white" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>Saint Village</h1>
+          <p className="mt-3 font-display text-lg tracking-[0.22em] text-white/75 sm:text-2xl">XX CENTURY</p>
+          <p className="mx-auto mt-4 max-w-[34rem] font-sans text-sm leading-relaxed text-white/70 sm:text-base">A cidade da neblina. Retome sua investigação de onde parou.</p>
+        </header>
 
-        <div className="mb-6 grid grid-cols-2 border border-white/20" aria-label="Acesso à conta">
-          <button type="button" onClick={() => { setMode('login'); setError(''); setNotice('') }} aria-pressed={mode === 'login'} className={`min-h-11 font-display text-xs tracking-[0.12em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${mode === 'login' ? 'bg-white text-black' : 'text-white/60 hover:text-white'}`}>
-            ENTRAR
-          </button>
-          <button type="button" onClick={() => { setMode('signup'); setError(''); setNotice('') }} aria-pressed={mode === 'signup'} className={`min-h-11 border-l border-white/20 font-display text-xs tracking-[0.12em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${mode === 'signup' ? 'bg-white text-black' : 'text-white/60 hover:text-white'}`}>
-            CRIAR CONTA
-          </button>
-        </div>
-
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="auth-email" className="font-display text-[11px] tracking-[0.14em] text-white/70">E-MAIL</label>
-            <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-12 border border-white/20 bg-black/35 px-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-white/70 focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="auth-password" className="font-display text-[11px] tracking-[0.14em] text-white/70">SENHA</label>
-            <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-12 border border-white/20 bg-black/35 px-3 font-sans text-sm text-white outline-none transition-colors placeholder:text-white/30 focus:border-white/70 focus-visible:ring-2 focus-visible:ring-white/40" placeholder="Mínimo de 8 caracteres" />
+        <section className="dossier mx-auto w-full border border-white/25 border-t-2 border-t-white/80 bg-black/55 px-5 py-6 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-sm sm:px-10 sm:py-9" aria-labelledby="auth-form-title">
+          <div className="mb-6 border-b border-white/15 pb-5">
+            <h2 id="auth-form-title" className="font-display text-xl tracking-[0.2em] text-white sm:text-2xl">{mode === 'login' ? 'QUEM ESTÁ INVESTIGANDO?' : 'ABRA SEU ARQUIVO'}</h2>
+            <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">{mode === 'login' ? 'Entre para continuar sua crônica.' : 'Crie sua conta para guardar sua crônica.'}</p>
           </div>
 
-          {error && <p className="border-l-2 border-white/60 bg-white/5 px-3 py-2 text-xs leading-relaxed text-white/80" role="alert">{error}</p>}
-          {notice && <p className="border-l-2 border-white/60 bg-white/5 px-3 py-2 text-xs leading-relaxed text-white/80" role="status">{notice}</p>}
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="auth-email" className="font-display text-xs tracking-[0.16em] text-white/75">E-MAIL</label>
+              <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-12 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="auth-password" className="font-display text-xs tracking-[0.16em] text-white/75">SENHA</label>
+              <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-12 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder={mode === 'signup' ? 'Mínimo de 8 caracteres' : 'Sua senha'} />
+            </div>
 
-          <button type="submit" disabled={pending} className="mt-1 min-h-12 bg-[#e5e5e5] px-4 font-display text-xs font-semibold tracking-[0.18em] text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60">
-            {pending ? 'AGUARDE…' : mode === 'login' ? 'ENTRAR NO ARQUIVO' : 'CRIAR CONTA'}
-          </button>
-        </form>
+            {error && <p className="border-l-2 border-white/70 bg-white/10 px-3 py-3 text-sm leading-relaxed text-white" role="alert">{error}</p>}
+            {notice && <p className="border-l-2 border-white/70 bg-white/10 px-3 py-3 text-sm leading-relaxed text-white" role="status">{notice}</p>}
 
-        <p className="mt-6 text-center font-sans text-[10px] leading-relaxed text-white/40">
-          Sua crônica e seus personagens ficam privados na sua conta.
-        </p>
-      </section>
+            <button type="submit" disabled={pending} className="mt-1 min-h-14 w-full bg-[#e5e5e5] px-4 font-display text-sm font-semibold tracking-[0.2em] text-black transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white disabled:cursor-wait disabled:opacity-60">
+              {pending ? 'AGUARDE…' : mode === 'login' ? 'ENTRAR NO ARQUIVO' : 'CRIAR CONTA'}
+            </button>
+          </form>
+
+          <div className="mt-6 border-t border-white/15 pt-5 text-center font-sans text-sm text-white/65">
+            {mode === 'login' ? 'Primeira vez por aqui?' : 'Já tem um arquivo?'}{' '}
+            <button type="button" onClick={() => { setMode(mode === 'login' ? 'signup' : 'login'); setError(''); setNotice('') }} className="min-h-10 px-1 font-semibold text-white underline decoration-white/60 underline-offset-4 hover:decoration-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              {mode === 'login' ? 'Criar conta' : 'Entrar'}
+            </button>
+          </div>
+        </section>
+      </div>
     </main>
   )
 }
