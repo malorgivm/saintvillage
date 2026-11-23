@@ -1,6 +1,7 @@
 'use client'
 
 import { installPlatformEnhancements } from "./platform-enhancements"
+import { AuthGate } from "@/components/auth-gate"
 
 const noirAccentStyles = `
   :root, .sv-frost, .sv-guide, .sv-content {
@@ -51,25 +52,27 @@ const noirAccentStyles = `
 
 export default function Page() {
   return (
-    <main className="h-dvh w-screen overflow-hidden bg-black">
-      <iframe
-        src="/reference-platform.html"
-        title="Saint Village 1934"
-        aria-label="Plataforma Saint Village 1934"
-        allow="autoplay"
-        onLoad={(event) => {
-          const doc = event.currentTarget.contentDocument
-          if (!doc?.head) return
-          if (!doc.getElementById('sv-noir-accent-styles')) {
-            const style = doc.createElement('style')
-            style.id = 'sv-noir-accent-styles'
-            style.textContent = noirAccentStyles
-            doc.head.append(style)
-          }
-          installPlatformEnhancements(doc)
-        }}
-        className="h-full w-full border-0"
-      />
-    </main>
+    <AuthGate>
+      <main className="h-full w-full overflow-hidden bg-black">
+        <iframe
+          src="/reference-platform.html"
+          title="Saint Village 1934"
+          aria-label="Plataforma Saint Village 1934"
+          allow="autoplay"
+          onLoad={(event) => {
+            const doc = event.currentTarget.contentDocument
+            if (!doc?.head) return
+            if (!doc.getElementById('sv-noir-accent-styles')) {
+              const style = doc.createElement('style')
+              style.id = 'sv-noir-accent-styles'
+              style.textContent = noirAccentStyles
+              doc.head.append(style)
+            }
+            installPlatformEnhancements(doc)
+          }}
+          className="h-full w-full border-0"
+        />
+      </main>
+    </AuthGate>
   )
 }
