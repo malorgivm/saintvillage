@@ -149,12 +149,12 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: User) => voi
     <main className="grain relative flex min-h-dvh items-center justify-center overflow-x-hidden overflow-y-auto bg-[#09090a] px-4 py-8 text-[#e5e5e5] sm:px-6 sm:py-12">
       <style>{`@keyframes sv-auth-logo-glow { 0%, 100% { opacity: .96; } 25%, 75% { opacity: .985; } 50% { opacity: 1; } } .sv-auth-logo { color: #fff; text-shadow: 0 0 2px #fff, 0 0 8px rgb(255 255 255 / 42%), 0 0 18px rgb(255 255 255 / 20%); animation: sv-auth-logo-glow 4s linear infinite; } @media (prefers-reduced-motion: reduce) { .sv-auth-logo { animation: none; } }`}</style>
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.48),rgba(0,0,0,.82)),url('/fundos/noir5.jpg')] bg-cover bg-center opacity-75" aria-hidden="true" />
-      <div className="relative z-10 w-full max-w-[640px]">
+      <div className="relative z-10 w-full max-w-[520px]">
         <header className="mb-8 px-2 text-center sm:mb-10">
           <h1 id="auth-title" className="sv-auth-logo text-[clamp(3.4rem,12vw,6rem)] leading-[.88] tracking-[0.04em]" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>Saint Village</h1>
         </header>
 
-        <section className="dossier mx-auto w-full border border-white/25 border-t-2 border-t-white/80 bg-zinc-500/20 px-5 py-6 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-md sm:px-10 sm:py-9" aria-labelledby="auth-form-title">
+        <section className="dossier mx-auto w-full border border-white/25 border-t-2 border-t-white/80 bg-zinc-500/20 px-5 py-5 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-md sm:px-8 sm:py-7" aria-labelledby="auth-form-title">
           <div className="mb-6 border-b border-white/15 pb-5">
             <h2 id="auth-form-title" className="font-display text-xl tracking-[0.2em] text-white sm:text-2xl">{mode === 'login' ? 'QUEM ESTÁ INVESTIGANDO?' : 'ABRA SEU ARQUIVO'}</h2>
             <p className="mt-2 font-sans text-sm leading-relaxed text-white/65">{mode === 'login' ? 'Entre para continuar sua crônica.' : 'Crie sua conta para guardar sua crônica.'}</p>
