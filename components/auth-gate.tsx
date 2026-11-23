@@ -154,7 +154,7 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: User) => voi
           <h1 id="auth-title" className="sv-auth-logo whitespace-nowrap text-[clamp(2.7rem,5.8vw,4rem)] leading-[.88] tracking-[0.04em]" style={{ fontFamily: 'var(--font-bebas), Impact, sans-serif' }}>Saint Village</h1>
         </header>
 
-        <section className="dossier mx-auto w-full border border-white/20 bg-zinc-500/20 px-5 py-5 shadow-[0_20px_70px_rgba(0,0,0,.4)] backdrop-blur-md sm:px-7 sm:py-6" aria-labelledby="auth-form-title">
+        <section className="mx-auto w-full px-5 py-5 sm:px-7 sm:py-6" aria-labelledby="auth-form-title">
           <div className="mb-5 border-b border-white/15 pb-4">
             <h2 id="auth-form-title" className="font-display text-lg tracking-[0.18em] text-white sm:text-xl">{mode === 'login' ? 'QUEM ESTÁ INVESTIGANDO?' : 'ABRA SEU ARQUIVO'}</h2>
           </div>
@@ -162,11 +162,11 @@ function LoginScreen({ onAuthenticated }: { onAuthenticated: (user: User) => voi
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
               <label htmlFor="auth-email" className="font-display text-xs tracking-[0.16em] text-white/75">E-MAIL</label>
-              <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
+              <input id="auth-email" name="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/75 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder="detetive@exemplo.com" />
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="auth-password" className="font-display text-xs tracking-[0.16em] text-white/75">SENHA</label>
-              <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/45 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder={mode === 'signup' ? 'Mínimo de 8 caracteres' : 'Sua senha'} />
+              <input id="auth-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={8} required value={password} onChange={(event) => setPassword(event.target.value)} className="min-h-11 w-full border border-white/25 bg-black/75 px-4 font-sans text-base text-white outline-none transition-colors placeholder:text-white/40 focus:border-white focus-visible:ring-2 focus-visible:ring-white/40" placeholder={mode === 'signup' ? 'Mínimo de 8 caracteres' : 'Sua senha'} />
             </div>
 
             {error && <p className="border-l-2 border-white/70 bg-white/10 px-3 py-3 text-sm leading-relaxed text-white" role="alert">{error}</p>}
