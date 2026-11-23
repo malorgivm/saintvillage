@@ -10,7 +10,7 @@ const bebas = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-
 export const metadata: Metadata = {
   title: 'Saint Village 1934 · A Cidade da Neblina',
   description:
-    'Um RPG investigativo solo ao estilo film noir. Monte seu investigador, abra um caso e enfrente Saint Village com um narrador de IA, um dado de seis faces e a sua consciência.',
+    'Um RPG investigativo solo ao estilo film noir. Entre na sua conta para salvar crônicas, casos e investigadores com segurança no Supabase.',
   generator: 'v0.app',
   icons: {
     icon: [
